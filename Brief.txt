@@ -1,0 +1,9 @@
+Converting Constructive Solid Geometry Trees to a Voxel Representation
+ 
+Given the attached code framework (cgp2-prep.zip) complete method stubs in C++ for the following:
+- A simple point in sphere test, to familiarise yourself with how shapes are represented in a CSG tree
+- Voxel Volume: setting and getting individual boolean values; filling the entire voxel volume with a value (set or unset); the constructor and destructor. There is an opportunity for a simple space optimisation here by packing boolean values into individual bits.
+- Scene: methods for rendering the leaf nodes of a CSG tree, and walking the tree to create a voxel representation.
+- Appropriate unit tests (using cpp unit) to test this new code
+ 
+Note: A framework with a GUI (in Qt) and Rendering (in OpenGL) has been provided. Your task is to fill out the methods marked as "To Do" in Doxygen. All code must be your own. A portion of the grade will be allocated to the SPACE EFFICIENCY of your solution.
