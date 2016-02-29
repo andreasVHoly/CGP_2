@@ -1,0 +1,24 @@
+digraph "tesselate/timer.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="tesselate/timer.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="tesselate/view.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$view_8h.html",tooltip="Controlling viewpoint changes. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="tesselate/shape.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$shape_8h.html",tooltip="ShapeGeometry class for rendering shapes in triangle mesh format. "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="tesselate/renderer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$renderer_8h_source.html"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="tesselate/mesh.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mesh_8h.html",tooltip="Data structure representing a triangle mesh in 3D space. "];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="tesselate/csg.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$csg_8h.html",tooltip="Constructive Solid Geometry binary tree, with internal nodes representing binary set operations and l..."];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="tesselate/glwidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$glwidget_8h_source.html"];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="tesselate/window.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$window_8h_source.html"];
+  Node5 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="test/test_mesh.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$test__mesh_8h_source.html"];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

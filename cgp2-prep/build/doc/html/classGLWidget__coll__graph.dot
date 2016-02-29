@@ -1,0 +1,33 @@
+digraph "GLWidget"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="GLWidget",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="QGLWidget",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" renderer" ,fontname="Helvetica"];
+  Node3 [label="Renderer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRenderer.html",tooltip="Class for managing OpenGL 3.2 rendering. "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" view" ,fontname="Helvetica"];
+  Node4 [label="View",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classView.html",tooltip="Information structure for view control. "];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" dir" ,fontname="Helvetica"];
+  Node5 [label="cgp::Vector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcgp_1_1Vector.html"];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" focus\nprevfocus\ncurrfocus\ncop\nlight" ,fontname="Helvetica"];
+  Node6 [label="cgp::Point",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcgp_1_1Point.html"];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" scene" ,fontname="Helvetica"];
+  Node7 [label="Scene",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classScene.html",tooltip="CSG Tree that can be evaluated to produce a volumetric representation. "];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" geom" ,fontname="Helvetica"];
+  Node8 [label="ShapeGeometry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classShapeGeometry.html",tooltip="Geometry in a format suitable for OpenGL. "];
+  Node5 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" voldiag" ,fontname="Helvetica"];
+  Node9 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vox" ,fontname="Helvetica"];
+  Node9 [label="VoxelVolume",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVoxelVolume.html",tooltip="A cuboid volume regularly subdivided into uniformly sized cubes (voxels). "];
+  Node5 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" diagonal\ncell" ,fontname="Helvetica"];
+  Node6 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" origin" ,fontname="Helvetica"];
+  Node10 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" voxmesh" ,fontname="Helvetica"];
+  Node10 [label="Mesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMesh.html",tooltip="A triangle mesh in 3D space. "];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="BaseShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBaseShape.html",tooltip="Abstract base class for shapes. "];
+  Node8 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" geometry" ,fontname="Helvetica"];
+  Node5 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" trx" ,fontname="Helvetica"];
+  Node12 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" csgroot" ,fontname="Helvetica"];
+  Node12 [label="SceneNode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSceneNode.html"];
+}

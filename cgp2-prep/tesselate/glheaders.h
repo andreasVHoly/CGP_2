@@ -2,8 +2,8 @@
 #define GLHEADERS_H_
 
 #define GL3_PROTOTYPES
-#include <OpenGL/gl3.h>
-#include <OpenGL/glu.h>
+#include <GL/gl3.h>
+#include <GL/glu.h>
 #include <QDebug>
 #include <QString>
 

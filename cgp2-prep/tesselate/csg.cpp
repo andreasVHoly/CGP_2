@@ -107,7 +107,7 @@ void Scene::clear()
     geom.clear();
     vox.clear();
 
-    // TO DO HERE, code to walk csg tree and deallocate nodes
+    // TODO HERE, code to walk csg tree and deallocate nodes
     // will require dynamic casting of SceneNode pointers
 }
 
@@ -123,12 +123,12 @@ bool Scene::bindGeometry(View * view, ShapeDrawData &sdd)
 
 void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 {
-    // stub, needs completing
+    //TODO, needs completing
 }
 
 void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 {
-    // stub, needs completing
+    //TODO, needs completing
     // will require dynamic casting of SceneNode pointers
 }
 
