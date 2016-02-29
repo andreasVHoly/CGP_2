@@ -41,7 +41,7 @@ void VoxelVolume::clear()
 
 void VoxelVolume::fill(bool setval)
 {
-    // stub, needs completing
+    //TODO stub, needs completing
 }
 
 void VoxelVolume::calcCellDiag()
@@ -59,7 +59,7 @@ void VoxelVolume::getDim(int &dimx, int &dimy, int &dimz)
 
 void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
 {
-    // stub, needs completing
+    //TODO stub, needs completing
 
     calcCellDiag();
 }
@@ -79,13 +79,13 @@ void VoxelVolume::setFrame(cgp::Point corner, cgp::Vector diag)
 
 bool VoxelVolume::set(int x, int y, int z, bool setval)
 {
-    // stub, needs completing
+    //TODO stub, needs completing
     return true;
 }
 
 bool VoxelVolume::get(int x, int y, int z)
 {
-    // stub, needs completing
+    //TODO stub, needs completing
     return true;
 }
 

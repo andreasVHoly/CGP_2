@@ -26,7 +26,7 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
     geom.clear();
     geom.setColour(defaultCol);
 
-    // TO DO HERE, traverse csg tree pushing leaf nodes (shapes) to leaves vector
+    // TODO HERE, traverse csg tree pushing leaf nodes (shapes) to leaves vector
     // note: this displays all the constituent shapes in the tree but doesn't apply any set operations to them
     // so it is purely a pre-visualization
 

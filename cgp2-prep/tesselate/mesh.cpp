@@ -37,7 +37,7 @@ void Sphere::genGeometry(ShapeGeometry * geom, View * view)
 
 bool Sphere::pointContainment(cgp::Point pnt)
 {
-    // stub, needs completing
+    //TODO stub, needs completing
     return true;
 }
 
@@ -564,7 +564,7 @@ bool Mesh::pointContainment(cgp::Point pnt)
         else // point is inside
             incount++;
     }
-    
+
     // consensus wins
     return (incount > outcount);
 }
