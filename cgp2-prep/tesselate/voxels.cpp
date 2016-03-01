@@ -118,8 +118,9 @@ bool VoxelVolume::set(int x, int y, int z, bool setval){
 
 bool VoxelVolume::get(int x, int y, int z)
 {
-
-    return true;
+    //START here
+    //TODO
+    return *(voxgrid + x + ydim + y + zdim + z);
 }
 
 cgp::Point VoxelVolume::getVoxelPos(int x, int y, int z)

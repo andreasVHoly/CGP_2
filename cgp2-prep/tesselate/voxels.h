@@ -91,7 +91,7 @@ public:
      * @param setval    new voxel value, either empty (false) or occupied (true)
      * @retval true if the voxel is within volume bounds,
      * @retval false otherwise.
-     * @todo VoxelVolume::set to be completed for CGP Assignment2
+     *
      */
     bool set(int x, int y, int z, bool setval);
 
@@ -100,7 +100,7 @@ public:
      * @param x, y, z   3D location, zero indexed
      * @retval true if the voxel is occupied,
      * @retval false if the voxel is empty.
-     * @todo VoxelVolume::get to be completed for CGP Assignment2
+     * 
      */
     bool get(int x, int y, int z);
 
