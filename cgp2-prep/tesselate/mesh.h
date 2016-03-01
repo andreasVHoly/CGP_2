@@ -53,7 +53,7 @@ public:
     /**
      * Test whether a point falls inside the shape. Will need to be overridden by each inheriting class.
      * @param pnt   point to test for containment
-     * @retval true if the point falls within the shape, 
+     * @retval true if the point falls within the shape,
      * @retval false otherwise
      */
     virtual bool pointContainment(cgp::Point pnt)=0;
@@ -145,7 +145,7 @@ public:
     /**
      * Test whether a point falls inside the cylinder
      * @param pnt   point to test for containment
-     * @retval true if the point falls within the sphere, 
+     * @retval true if the point falls within the sphere,
      * @retval false otherwise
      */
     bool pointContainment(cgp::Point pnt);
@@ -287,7 +287,7 @@ public:
     /**
      * Test whether a point falls inside the mesh using ray-mesh intersection tests
      * @param pnt   point to test for containment
-     * @retval true if the point falls within the mesh, 
+     * @retval true if the point falls within the mesh,
      * @retval false otherwise
      */
     bool pointContainment(cgp::Point pnt);
@@ -318,7 +318,7 @@ public:
      * Basic mesh validity tests - report euler's characteristic, no dangling vertices, edge indices within bounds of the vertex list
      * @retval true if basic validity tests are passed,
      * @retval false otherwise
-     * @todo basicValidity requires completing for CGP Prac1
+
      */
     bool basicValidity();
 
@@ -328,7 +328,7 @@ public:
      * This test does not include self-intersection of individual triangles as this is outside the scope.
      * @retval true if the mesh is two-manifold,
      * @retval false otherwise
-     * @todo manifoldValidity requires completing for CGP Prac1
+     *
      */
     bool manifoldValidity();
 

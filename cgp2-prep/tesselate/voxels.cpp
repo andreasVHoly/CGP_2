@@ -60,7 +60,7 @@ void VoxelVolume::getDim(int &dimx, int &dimy, int &dimz)
 void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
 {
     //TODO stub, needs completing
-
+    
     calcCellDiag();
 }
 

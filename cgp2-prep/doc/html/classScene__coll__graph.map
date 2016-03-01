@@ -1,0 +1,9 @@
+<map id="Scene" name="Scene">
+<area shape="rect" id="node2" href="$classShapeGeometry.html" title="Geometry in a format suitable for OpenGL. " alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node6" href="$classMesh.html" title="A triangle mesh in 3D space. " alt="" coords="465,109,519,136"/>
+<area shape="rect" id="node3" href="$classcgp_1_1Vector.html" title="cgp::Vector" alt="" coords="342,5,431,32"/>
+<area shape="rect" id="node4" href="$classVoxelVolume.html" title="A cuboid volume regularly subdivided into uniformly sized cubes (voxels). " alt="" coords="183,109,281,136"/>
+<area shape="rect" id="node5" href="$classcgp_1_1Point.html" title="cgp::Point" alt="" coords="145,5,225,32"/>
+<area shape="rect" id="node7" href="$classBaseShape.html" title="Abstract base class for shapes. " alt="" coords="455,5,544,32"/>
+<area shape="rect" id="node8" href="$classSceneNode.html" title="SceneNode" alt="" coords="544,109,635,136"/>
+</map>

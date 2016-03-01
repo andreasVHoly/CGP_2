@@ -1,0 +1,4 @@
+<map id="ShapeNode" name="ShapeNode">
+<area shape="rect" id="node2" href="$classSceneNode.html" title="SceneNode" alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node3" href="$classBaseShape.html" title="Abstract base class for shapes. " alt="" coords="121,5,209,32"/>
+</map>

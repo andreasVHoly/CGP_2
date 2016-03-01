@@ -1,0 +1,12 @@
+<map id="GLWidget" name="GLWidget">
+<area shape="rect" id="node3" href="$classRenderer.html" title="Class for managing OpenGL 3.2 rendering. " alt="" coords="120,245,193,272"/>
+<area shape="rect" id="node4" href="$classView.html" title="Information structure for view control. " alt="" coords="173,155,224,181"/>
+<area shape="rect" id="node5" href="$classcgp_1_1Vector.html" title="cgp::Vector" alt="" coords="405,5,493,32"/>
+<area shape="rect" id="node7" href="$classScene.html" title="CSG Tree that can be evaluated to produce a volumetric representation. " alt="" coords="443,245,500,272"/>
+<area shape="rect" id="node9" href="$classVoxelVolume.html" title="A cuboid volume regularly subdivided into uniformly sized cubes (voxels). " alt="" coords="248,155,347,181"/>
+<area shape="rect" id="node10" href="$classMesh.html" title="A triangle mesh in 3D space. " alt="" coords="579,155,633,181"/>
+<area shape="rect" id="node6" href="$classcgp_1_1Point.html" title="cgp::Point" alt="" coords="207,5,288,32"/>
+<area shape="rect" id="node8" href="$classShapeGeometry.html" title="Geometry in a format suitable for OpenGL. " alt="" coords="661,5,776,32"/>
+<area shape="rect" id="node11" href="$classBaseShape.html" title="Abstract base class for shapes. " alt="" coords="547,5,636,32"/>
+<area shape="rect" id="node12" href="$classSceneNode.html" title="SceneNode" alt="" coords="371,155,461,181"/>
+</map>

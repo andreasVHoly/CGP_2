@@ -46,6 +46,21 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
         return false;
 }
 
+
+
+void Scene::inOrderWalk(OpNode & node){
+    if (node is ShapeNode){
+        std::cout << "Found leaf node with " << node.BaseShape << std::endl;
+        leaves->pusch_back((ShapeNode)H Cnode);
+    }
+    else{
+        inOrderWalk(node.left);
+        inOrderWalk(node.right);
+    }
+
+}
+
+
 bool Scene::genVoxRender(View * view, ShapeDrawData &sdd)
 {
     int x, y, z, xdim, ydim, zdim;
