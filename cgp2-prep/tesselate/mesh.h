@@ -99,7 +99,6 @@ public:
      * @param pnt   point to test for containment
      * @retval true if the point falls within the sphere,
      * @retval false otherwise
-     * @todo Sphere::pointContainment to be completed for CGP Assignment2
      */
     bool pointContainment(cgp::Point pnt);
 

@@ -40,9 +40,6 @@ bool Sphere::pointContainment(cgp::Point pnt)
     //we are assuming we are in a sphere
     //logic:
         //if the distance from the centre to the supplied point is smaller than the radius we are inside the mesh
-
-
-
     double dist = pnt.dist(c);
 
 
