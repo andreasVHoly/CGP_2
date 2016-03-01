@@ -72,7 +72,6 @@ private:
      * @param[out] sdd  openGL parameters required to draw this geometry
      * @retval @c true  if buffers are bound successfully, in which case sdd is valid
      * @retval @c false otherwise
-     * @todo parts of Scene::genVizRender to be completed for CGP Assignment2
      */
     bool genVizRender(View * view, ShapeDrawData &sdd);
 
@@ -116,7 +115,6 @@ public:
 
     /**
      * Reset CSG tree
-     * @todo Parts of Scene::clear to be completed for CGP Assignment2
      */
     void clear();
 

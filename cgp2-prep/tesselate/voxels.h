@@ -67,7 +67,7 @@ public:
     /**
      * Set the dimensions of the voxel volume and allocate memory accordingly
      * @param dimx, dimy, dimz     number of voxels in x, y, z dimensions
-     * @todo VoxelVolume::setDim to be completed for CGP Assignment2
+     
      */
     void setDim(int &dimx, int &dimy, int &dimz);
 
@@ -107,7 +107,7 @@ public:
     /**
      * Find the world-space position of the centre of a voxel
      * @param x, y, z   3D location, zero indexed
-     * @returns voxel centre point 
+     * @returns voxel centre point
      */
     cgp::Point getVoxelPos(int x, int y, int z);
 };

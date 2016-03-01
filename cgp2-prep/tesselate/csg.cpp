@@ -159,7 +159,10 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 {
     //TODO, needs completing
-    // will require dynamic casting of SceneNode pointers
+    // will require dynamic casting of SceneNode pointers with 0's -> false
+
+
+
 }
 
 void Scene::voxelise(float voxlen)
