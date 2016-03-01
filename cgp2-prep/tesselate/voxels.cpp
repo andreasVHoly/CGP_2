@@ -65,9 +65,9 @@ void VoxelVolume::getDim(int &dimx, int &dimy, int &dimz)
 void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
 {
     //fill up with false
-
+    std::cout << dimx << "," << dimy << "," << dimz << std::endl;
     //we need to build up the array for x values
-    for (int x = 0; x < dimx; x++){
+    /*for (int x = 0; x < dimx; x++){
         *(voxgrid + x) = 1;
     }
     //we need to build up the array for y values
@@ -78,7 +78,9 @@ void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
     //we need to build up the array for z values
     for (int z = 0; z < dimz; z++){
         *(voxgrid + dimx  + dimy + z) = 1;
-    }
+    }*/
+    //used fill to do this as the method is the same
+    fill(1);
 
     calcCellDiag();
 }

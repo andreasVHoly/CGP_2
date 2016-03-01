@@ -98,7 +98,7 @@ public:
      * Test whether a point falls inside the sphere
      * @param pnt   point to test for containment
      * @retval true if the point falls within the sphere,
-     * @retval false otherwise
+     * @retval false otherwiseC
      */
     bool pointContainment(cgp::Point pnt);
 
