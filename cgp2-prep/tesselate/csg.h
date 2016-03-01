@@ -64,7 +64,7 @@ private:
     std::vector<ShapeNode *> leaves;///< the leaves vector
 
 
-    void inOrderWalk(OpNode & node);
+    void inOrderWalk(SceneNode * node);
     /**
      * Generate triangle mesh geometry for OpenGL rendering of all leaf nodes.
      * Does not capture set operations at all (except where all set operations are a union)

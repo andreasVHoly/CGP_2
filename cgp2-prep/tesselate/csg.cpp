@@ -50,18 +50,22 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
 
 
 
-void Scene::inOrderWalk(SceneNode & node){
+void Scene::inOrderWalk(SceneNode* node){
 
 
 
-    if (node is ShapeNode){
-        std::cout << "Found leaf node with " << node.BaseShape << std::endl;
-        leaves->pusch_back(dynamic_cast<SceneNode>(node));
+
+    //check if we have a shape node, cast will fail if not
+    if (ShapeNode * sn = dynamic_cast<ShapeNode*>(node)){
+        std::cout << "Found leaf node with " << std::endl;
+        leaves.push_back(sn);
     }
     else{
-        inOrderWalk(node.left);
-        inOrderWalk(node.right);
+        //we have an opnode
+        inOrderWalk(dynamic_cast<OpNode*>(node)->left);
+        inOrderWalk(dynamic_cast<OpNode*>(node)->right);
     }
+
 
 }
 
