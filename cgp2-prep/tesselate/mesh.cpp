@@ -37,8 +37,22 @@ void Sphere::genGeometry(ShapeGeometry * geom, View * view)
 
 bool Sphere::pointContainment(cgp::Point pnt)
 {
-    //TODO stub, needs completing
-    return true;
+    //we are assuming we are in a sphere
+    //logic:
+        //if the distance from the centre to the supplied point is smaller than the radius we are inside the mesh
+
+
+
+    double dist = pnt.dist(c);
+
+
+    if ((float)dist <= r){
+        return true;
+    }
+    else{
+        return false;
+    }
+
 }
 
 void Cylinder::genGeometry(ShapeGeometry * geom, View * view)

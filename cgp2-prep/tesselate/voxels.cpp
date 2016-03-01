@@ -117,10 +117,19 @@ bool VoxelVolume::set(int x, int y, int z, bool setval){
 }
 
 bool VoxelVolume::get(int x, int y, int z)
-{
-    //START here
-    //TODO
-    return *(voxgrid + x + ydim + y + zdim + z);
+{   //get individual values
+    bool xVal = *(voxgrid+x);
+    bool yVal = *(voxgrid+ xdim + y);
+    bool zVal = *(voxgrid + xdim + ydim + z);
+    if (zVal && yVal && xVal){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+    //TODO array breaks with points of same coord on common axis
+
 }
 
 cgp::Point VoxelVolume::getVoxelPos(int x, int y, int z)
