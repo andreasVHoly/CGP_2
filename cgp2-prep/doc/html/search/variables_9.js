@@ -1,6 +1,7 @@
 var searchData=
 [
   ['lastpos',['lastPos',['../classGLWidget.html#a9fb7fece62b92f7a0bb4167ea1e05c28',1,'GLWidget']]],
+  ['leaves',['leaves',['../classScene.html#a406c74a100ab9fbb2b5d994742824e7f',1,'Scene']]],
   ['light',['light',['../classView.html#a144a9e1e6e5e0bbdada65907a169389d',1,'View']]],
   ['lightambientcolour',['lightAmbientColour',['../classRenderer.html#ab9239e3104afc20e2a3b64c908f42775',1,'Renderer']]],
   ['lightdiffusecolour',['lightDiffuseColour',['../classRenderer.html#a09dfd12249c2f7874af64e076ea1a815',1,'Renderer']]],

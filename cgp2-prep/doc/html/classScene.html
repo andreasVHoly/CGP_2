@@ -166,9 +166,12 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:affd6eccd58b5ddd91fe8b847155e2ea1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affd6eccd58b5ddd91fe8b847155e2ea1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>inOrderWalk</b> (<a class="el" href="classOpNode.html">OpNode</a> &amp;node)</td></tr>
-<tr class="separator:affd6eccd58b5ddd91fe8b847155e2ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb4ac1181380f7be0b3447cd9d317a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedb4ac1181380f7be0b3447cd9d317a8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteTree</b> ()</td></tr>
+<tr class="separator:aedb4ac1181380f7be0b3447cd9d317a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee78f289cfe9416f1125479f9c3e0885"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee78f289cfe9416f1125479f9c3e0885"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>inOrderWalk</b> (<a class="el" href="classSceneNode.html">SceneNode</a> *node)</td></tr>
+<tr class="separator:aee78f289cfe9416f1125479f9c3e0885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2683f694189bb3f94f2558298d8f8886"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#a2683f694189bb3f94f2558298d8f8886">genVizRender</a> (<a class="el" href="classView.html">View</a> *view, <a class="el" href="structShapeDrawData.html">ShapeDrawData</a> &amp;sdd)</td></tr>
 <tr class="memdesc:a2683f694189bb3f94f2558298d8f8886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate triangle mesh geometry for OpenGL rendering of all leaf nodes.  <a href="#a2683f694189bb3f94f2558298d8f8886">More...</a><br/></td></tr>
 <tr class="separator:a2683f694189bb3f94f2558298d8f8886"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,6 +214,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <a class="el" href="classMesh.html">Mesh</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#a484bdf5718befcc575e4420bb10bb1bd">voxmesh</a></td></tr>
 <tr class="memdesc:a484bdf5718befcc575e4420bb10bb1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">isosurface of voxel volume <br/></td></tr>
 <tr class="separator:a484bdf5718befcc575e4420bb10bb1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a406c74a100ab9fbb2b5d994742824e7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a406c74a100ab9fbb2b5d994742824e7f"></a>
+std::vector&lt; <a class="el" href="classShapeNode.html">ShapeNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#a406c74a100ab9fbb2b5d994742824e7f">leaves</a></td></tr>
+<tr class="memdesc:a406c74a100ab9fbb2b5d994742824e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the leaves vector <br/></td></tr>
+<tr class="separator:a406c74a100ab9fbb2b5d994742824e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CSG Tree that can be evaluated to produce a volumetric representation. </p>
@@ -549,7 +556,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classScene.html">Scene</a></li>
-    <li class="footer">Generated on Tue Mar 1 2016 07:20:57 for CGP by
+    <li class="footer">Generated on Tue Mar 1 2016 11:40:09 for CGP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

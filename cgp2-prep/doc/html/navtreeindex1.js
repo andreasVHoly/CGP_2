@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"classVoxelVolume.html#a0a2d4443d5407789e575c07153d847d4":[1,0,21,0],
+"classVoxelVolume.html#a0aa36c3fcf1a3fbaf5ce5cd7184739b1":[1,0,21,14],
 "classVoxelVolume.html#a1985ccfed7e78366dd5fcd963be6acc3":[1,0,21,5],
 "classVoxelVolume.html#a2d0f093d9f7cf0085e1e3ebdc58e5f0d":[1,0,21,10],
 "classVoxelVolume.html#a4ac23a5e92d140a3d7fbf12685ab7b8f":[1,0,21,2],

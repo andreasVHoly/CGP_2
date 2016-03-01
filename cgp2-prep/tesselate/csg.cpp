@@ -26,10 +26,7 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
     geom.clear();
     geom.setColour(defaultCol);
 
-    // TODO HERE, traverse csg tree pushing leaf nodes (shapes) to leaves vector
-    // note: this displays all the constituent shapes in the tree but doesn't apply any set operations to them
-    // so it is purely a pre-visualization
-    //OpNode root = dynamic_cast<OpNode>(csgroot);
+    //traverse csg tree to find leaf nodes & populate the leaf node vector
     inOrderWalk(csgroot);
 
     // traverse leaf shapes generating geometry
@@ -49,11 +46,8 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
 }
 
 
-
+//recursive method for finding leaf nodes
 void Scene::inOrderWalk(SceneNode* node){
-
-
-
 
     //check if we have a shape node, cast will fail if not
     if (ShapeNode * sn = dynamic_cast<ShapeNode*>(node)){
@@ -61,12 +55,10 @@ void Scene::inOrderWalk(SceneNode* node){
         leaves.push_back(sn);
     }
     else{
-        //we have an opnode
+        //we have an opnode and we recurse further
         inOrderWalk(dynamic_cast<OpNode*>(node)->left);
         inOrderWalk(dynamic_cast<OpNode*>(node)->right);
     }
-
-
 }
 
 
@@ -130,9 +122,23 @@ void Scene::clear()
 {
     geom.clear();
     vox.clear();
+    deleteTree();
 
-    // TODO HERE, code to walk csg tree and deallocate nodes
-    // will require dynamic casting of SceneNode pointers
+}
+
+//cleans up the tree
+void Scene::deleteTree(){
+    //we need to cast as we want to get access to left and right
+
+    //we check if the root can be cast to a OpNode -> it should allow this
+    //delete the child if we find it
+    if (OpNode * rn = dynamic_cast<OpNode*>(csgroot)){
+        delete rn->right;
+    }
+    //we check for the left child and delete if found
+    if (OpNode * ln = dynamic_cast<OpNode*>(csgroot)){
+        delete ln->left;
+    }
 }
 
 bool Scene::bindGeometry(View * view, ShapeDrawData &sdd)

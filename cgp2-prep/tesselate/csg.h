@@ -63,7 +63,7 @@ private:
     Mesh voxmesh;                   ///< isosurface of voxel volume
     std::vector<ShapeNode *> leaves;///< the leaves vector
 
-
+    void deleteTree();
     void inOrderWalk(SceneNode * node);
     /**
      * Generate triangle mesh geometry for OpenGL rendering of all leaf nodes.

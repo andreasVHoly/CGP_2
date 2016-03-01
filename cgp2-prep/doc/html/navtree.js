@@ -26,7 +26,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"classVoxelVolume.html#a1985ccfed7e78366dd5fcd963be6acc3"
+"classVoxelVolume.html#a0a2d4443d5407789e575c07153d847d4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
