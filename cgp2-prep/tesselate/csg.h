@@ -63,8 +63,20 @@ private:
     Mesh voxmesh;                   ///< isosurface of voxel volume
     std::vector<ShapeNode *> leaves;///< the leaves vector
 
+
+    //added
     void deleteTree();
     void inOrderWalk(SceneNode * node);
+    void applyUnion();
+    void applyDifference();
+    void applyIntersection();
+
+
+
+
+
+    //added
+
     /**
      * Generate triangle mesh geometry for OpenGL rendering of all leaf nodes.
      * Does not capture set operations at all (except where all set operations are a union)

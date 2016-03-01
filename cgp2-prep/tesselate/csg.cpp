@@ -152,6 +152,39 @@ bool Scene::bindGeometry(View * view, ShapeDrawData &sdd)
 void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 {
     //TODO, needs completing
+
+
+    switch(op){
+        //union operation
+        case SetOp::UNION:
+            applyUnion();
+
+            
+
+            break;
+        //intersection operation
+        case SetOp::INTERSECTION:
+            break;
+        //diff operation
+        case SetOp::DIFFERENCE:
+            break;
+    }
+
+
+
+}
+
+
+void Scene::applyUnion(){
+
+}
+
+void Scene::applyDifference(){
+
+}
+
+void Scene::applyIntersection(){
+
 }
 
 void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
