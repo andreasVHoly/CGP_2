@@ -20,7 +20,7 @@ GLfloat defaultCol[] = {0.243f, 0.176f, 0.75f, 1.0f};
 
 bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
 {
-    std::vector<ShapeNode *> leaves;
+
     int i;
 
     geom.clear();
@@ -29,6 +29,8 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
     // TODO HERE, traverse csg tree pushing leaf nodes (shapes) to leaves vector
     // note: this displays all the constituent shapes in the tree but doesn't apply any set operations to them
     // so it is purely a pre-visualization
+    //OpNode root = dynamic_cast<OpNode>(csgroot);
+    inOrderWalk(csgroot);
 
     // traverse leaf shapes generating geometry
     for(i = 0; i < (int) leaves.size(); i++)
@@ -48,10 +50,13 @@ bool Scene::genVizRender(View * view, ShapeDrawData &sdd)
 
 
 
-void Scene::inOrderWalk(OpNode & node){
+void Scene::inOrderWalk(SceneNode & node){
+
+
+
     if (node is ShapeNode){
         std::cout << "Found leaf node with " << node.BaseShape << std::endl;
-        leaves->pusch_back((ShapeNode)H Cnode);
+        leaves->pusch_back(dynamic_cast<SceneNode>(node));
     }
     else{
         inOrderWalk(node.left);

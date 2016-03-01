@@ -61,7 +61,7 @@ private:
     float voxsidelen;               ///< side length of a single voxel
     bool voxactive;                 ///< voxel representation has been created
     Mesh voxmesh;                   ///< isosurface of voxel volume
-
+    std::vector<ShapeNode *> leaves;///< the leaves vector
 
 
     void inOrderWalk(OpNode & node);
