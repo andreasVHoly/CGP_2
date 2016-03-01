@@ -54,7 +54,7 @@ public:
     /**
      * Set all voxel elements in volume to empty or occupied
      * @param setval    new value for all voxel elements, either empty (false) or occupied (true)
-     * @todo VoxelVolume::fill to be completed for CGP Assignment2
+     *
      */
     void fill(bool setval);
 
@@ -67,7 +67,7 @@ public:
     /**
      * Set the dimensions of the voxel volume and allocate memory accordingly
      * @param dimx, dimy, dimz     number of voxels in x, y, z dimensions
-     
+
      */
     void setDim(int &dimx, int &dimy, int &dimz);
 

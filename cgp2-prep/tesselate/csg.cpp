@@ -118,12 +118,10 @@ Scene::~Scene()
     clear();
 }
 
-void Scene::clear()
-{
+void Scene::clear(){
     geom.clear();
     vox.clear();
     deleteTree();
-
 }
 
 //cleans up the tree
