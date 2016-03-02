@@ -153,45 +153,71 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 {
     //TODO, needs completing
 
+    int dimx, dimy, dimz;
+    leftarg->getDim(dimx,dimy,dimz);
+    cout << dimx << " " << dimy << " " << dimz << endl;
+    //for xdim then for all
 
     switch(op){
         //union operation
         case SetOp::UNION:
-            applyUnion();
-
-            
-
+            for (int x = 0; x < dimx; x++){
+                for (int y = 0; y < dimy; y++){
+                    for (int z = 0; z < dimz; z++){
+                        leftarg->set(x,y,z,leftarg->get(x,y,z) | rightarg->get(x,y,z));
+                    }
+                }
+            }
             break;
         //intersection operation
         case SetOp::INTERSECTION:
+            for (int x = 0; x < dimx; x++){
+                for (int y = 0; y < dimy; y++){
+                    for (int z = 0; z < dimz; z++){
+                        leftarg->set(x,y,z,leftarg->get(x,y,z) & rightarg->get(x,y,z));
+                    }
+                }
+            }
             break;
         //diff operation
         case SetOp::DIFFERENCE:
+            for (int x = 0; x < dimx; x++){
+                for (int y = 0; y < dimy; y++){
+                    for (int z = 0; z < dimz; z++){
+                        leftarg->set(x,y,z,leftarg->get(x,y,z) ^ rightarg->get(x,y,z));
+                    }
+                }
+            }
             break;
     }
-
-
-
 }
 
 
-void Scene::applyUnion(){
-
-}
-
-void Scene::applyDifference(){
-
-}
-
-void Scene::applyIntersection(){
-
-}
 
 void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 {
     //TODO, needs completing
     // will require dynamic casting of SceneNode pointers with 0's -> false
 
+    SceneNode * leftChild = dynamic_cast<OpNode*>(root)->left;
+    SceneNode * rightChild = dynamic_cast<OpNode*>(root)->right;
+    if (ShapeNode * sn = dynamic_cast<ShapeNode*>(leftChild)){
+        
+    }
+
+
+    //check if we have a shape node, cast will fail if not
+    if (){
+        std::cout << "Found leaf node in voxwalk " << std::endl;
+        //sn->shape;
+
+    }
+    else{
+        //we have an opnode and we recurse further
+        voxWalk(,voxels);
+
+        voxWalk(dynamic_cast<OpNode*>(root)->right,voxels);
+    }
 
 
 }

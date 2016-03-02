@@ -100,24 +100,14 @@ void VoxelVolume::setFrame(cgp::Point corner, cgp::Vector diag)
 }
 
 bool VoxelVolume::set(int x, int y, int z, bool setval){
-    //check x bounds
-    //TODO redo this
-    /*if (x < 0 || x > xdim){
-        return false;
-    }
-    //check y bounds
-    if (y < xdim || y > (ydim+xdim)){
-        return false;
-    }
-    //check z bounds
-    if (z < ydim || z > (ydim+xdim+zdim)){
-        return false;
-    }*/
+
+
 
     //calculate the index into the 1D array
     int index = (x + xdim + ydim * (y + zdim * z));
-
+    //we check that the index is within bounds
     if (index < 0 || index >= xdim*ydim*zdim){
+        cout << "voxel index out of range in set()" << endl;
         return false;
     }
     //set to specified value
