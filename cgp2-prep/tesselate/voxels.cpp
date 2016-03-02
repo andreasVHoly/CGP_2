@@ -39,11 +39,16 @@ void VoxelVolume::clear()
     }
 }
 
+//3d to 1d alg
+//Flat[x + WIDTH * (y + DEPTH * z)] = Original[x, y, z]
+//*(voxgrid + x + xdim + ydim * (y + zdim * z)) -> should point into right position
+
 void VoxelVolume::fill(bool setval)
 {
 
     //we need to build up the array for x values
-    int size = xdim+ydim+zdim;
+    //size of the array is the product of the 3 dimesnions
+    int size = xdim*ydim*zdim;
     for (int x = 0; x < size; x++){
         *(voxgrid + x) = setval;
     }
@@ -64,21 +69,17 @@ void VoxelVolume::getDim(int &dimx, int &dimy, int &dimz)
 
 void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
 {
+    //assign dimensions
+    xdim = dimx;
+    ydim = dimy;
+    zdim = dimz;
+    //allocate memory for the pointer structure
+    voxgrid = new int[xdim*ydim*zdim];
+
+
     //fill up with false
     std::cout << dimx << "," << dimy << "," << dimz << std::endl;
     //we need to build up the array for x values
-    /*for (int x = 0; x < dimx; x++){
-        *(voxgrid + x) = 1;
-    }
-    //we need to build up the array for y values
-    for (int y = 0; y < dimy; y++){
-        *(voxgrid + dimx + y) = 1;
-    }
-
-    //we need to build up the array for z values
-    for (int z = 0; z < dimz; z++){
-        *(voxgrid + dimx  + dimy + z) = 1;
-    }*/
     //used fill to do this as the method is the same
     fill(1);
 
@@ -100,7 +101,8 @@ void VoxelVolume::setFrame(cgp::Point corner, cgp::Vector diag)
 
 bool VoxelVolume::set(int x, int y, int z, bool setval){
     //check x bounds
-    if (x < 0 || x > xdim){
+    //TODO redo this
+    /*if (x < 0 || x > xdim){
         return false;
     }
     //check y bounds
@@ -110,27 +112,24 @@ bool VoxelVolume::set(int x, int y, int z, bool setval){
     //check z bounds
     if (z < ydim || z > (ydim+xdim+zdim)){
         return false;
-    }
+    }*/
 
-    *(voxgrid + x) = setval;
-    *(voxgrid+ xdim + y) = setval;
-    *(voxgrid + xdim + ydim + z) = setval;
+    //calculate the index into the 1D array
+    int index = (x + xdim + ydim * (y + zdim * z));
+
+    if (index < 0 || index >= xdim*ydim*zdim){
+        return false;
+    }
+    //set to specified value
+    *(voxgrid + index) = setval;
     return true;
 }
 
 bool VoxelVolume::get(int x, int y, int z)
 {   //get individual values
-    bool xVal = *(voxgrid+x);
-    bool yVal = *(voxgrid+ xdim + y);
-    bool zVal = *(voxgrid + xdim + ydim + z);
-    if (zVal && yVal && xVal){
-        return true;
-    }
-    else{
-        return false;
-    }
+    int index = *(voxgrid + x + xdim + ydim * (y + zdim * z));
+    return index;
 
-    //TODO array breaks with points of same coord on common axis
 
 }
 
