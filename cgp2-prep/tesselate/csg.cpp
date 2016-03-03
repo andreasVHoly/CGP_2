@@ -199,24 +199,42 @@ void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
     //TODO, needs completing
     // will require dynamic casting of SceneNode pointers with 0's -> false
 
-    SceneNode * leftChild = dynamic_cast<OpNode*>(root)->left;
-    SceneNode * rightChild = dynamic_cast<OpNode*>(root)->right;
-    if (ShapeNode * sn = dynamic_cast<ShapeNode*>(leftChild)){
-        
+    if (ShapeNode * leaf = dynamic_cast<ShapeNode*>(root)){
+
+
+        int dimx,dimy,dimz;
+        voxels->getDim(dimx,dimy,dimz);
+
+        for (int x = 0; x < dimx; x++){
+            for (int y = 0; y < dimy; y++){
+                for (int z = 0; z < dimz; z++){
+                    //we get the voxel to world conversion
+                    cgp::Point point = voxels->getVoxelPos(x,y,z);
+                    //we check if the world coord is inside the model
+                    bool result = leaf->shape->pointContainment(point);
+                    //we change the result in the voxel space
+                    voxels->set(x,y,z,result);
+                }
+            }
+        }
     }
+    else if (OpNode * op = dynamic_cast<OpNode*>(root)){
+        voxWalk(op->left,voxels);
+        //VoxelVolume(int xsize, int ysize, int zsize, cgp::Point corner, cgp::Vector diag); constructor
+
+        //getting all the info to create a new voxel volume
+        cgp::Point corner;
+        cgp::Vector diag;
+        voxels->getFrame(corner,diag);
+
+        int dimx,dimy,dimz;
+        voxels->getDim(dimx,dimy,dimz);
+        VoxelVolume * vox2 = new VoxelVolume(dimx,dimy,dimz,corner,diag);
 
 
-    //check if we have a shape node, cast will fail if not
-    if (){
-        std::cout << "Found leaf node in voxwalk " << std::endl;
-        //sn->shape;
 
-    }
-    else{
-        //we have an opnode and we recurse further
-        voxWalk(,voxels);
 
-        voxWalk(dynamic_cast<OpNode*>(root)->right,voxels);
+        voxWalk(op->right,vox2);
     }
 
 
