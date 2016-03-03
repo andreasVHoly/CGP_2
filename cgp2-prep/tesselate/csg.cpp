@@ -184,7 +184,17 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
             for (int x = 0; x < dimx; x++){
                 for (int y = 0; y < dimy; y++){
                     for (int z = 0; z < dimz; z++){
-                        leftarg->set(x,y,z,leftarg->get(x,y,z) ^ rightarg->get(x,y,z));
+                        leftarg->set(x,y,z, leftarg->get(x,y,z) & (leftarg->get(x,y,z) ^ rightarg->get(x,y,z)));
+
+                        /*if (leftarg->get(x,y,z) == 1 && rightarg->get(x,y,z) == 1){
+                            leftarg->set(x,y,z,0);
+                        }
+                        if (leftarg->get(x,y,z) == 0 && rightarg->get(x,y,z) == 0){
+                            leftarg->set(x,y,z,0);
+                        }
+                        else{
+
+                        }*/
                     }
                 }
             }
