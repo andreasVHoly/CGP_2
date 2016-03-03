@@ -107,11 +107,11 @@ bool VoxelVolume::set(int x, int y, int z, bool setval){
         cout << "voxel x index out of range in set()" << endl;
         return false;
     }
-    if (y < 0 || y >= xdim){
+    if (y < 0 || y >= ydim){
         cout << "voxel y index out of range in set()" << endl;
         return false;
     }
-    if (z < 0 || z >= xdim){
+    if (z < 0 || z >= zdim){
         cout << "voxel z index out of range in set()" << endl;
         return false;
     }
