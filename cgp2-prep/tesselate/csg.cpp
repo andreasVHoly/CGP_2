@@ -250,6 +250,8 @@ void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 
         //void voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg);
         voxSetOp(op->op, voxels, vox2);
+
+        delete vox2;
         //TODO need to delete the VoxelVolume
     }
 
