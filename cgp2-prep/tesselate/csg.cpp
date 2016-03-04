@@ -274,7 +274,7 @@ void Scene::voxelise(float voxlen)
         voxWalk(csgroot, &vox);
 }
 
-void Scene::sampleScene()
+/*void Scene::sampleScene()
 {
     ShapeNode * sph = new ShapeNode();
     sph->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 4.0f);
@@ -294,6 +294,40 @@ void Scene::sampleScene()
     diff->op = SetOp::DIFFERENCE;
     diff->left = combine;
     diff->right = cyl2;
+
+    csgroot = diff;
+}*/
+
+void Scene::sampleScene()
+{
+    ShapeNode * sph = new ShapeNode();
+    sph->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 4.0f);
+
+    ShapeNode * cyl1 = new ShapeNode();
+    cyl1->shape = new Cylinder(cgp::Point(-7.0f, -7.0f, 0.0f), cgp::Point(7.0f, 7.0f, 0.0f), 2.0f);
+
+    ShapeNode * cyl2 = new ShapeNode();
+    cyl2->shape = new Cylinder(cgp::Point(0.0f, -7.0f, 0.0f), cgp::Point(0.0f, 7.0f, 0.0f), 2.5f);
+
+    ShapeNode * cyl3 = new ShapeNode();
+    cyl3->shape = new Cylinder(cgp::Point(0.0f, -7.0f, -7.0f), cgp::Point(0.0f, 7.0f, 7.0f), 3.0f);
+
+    OpNode * combine = new OpNode();
+    combine->op = SetOp::UNION;
+    combine->left = sph;
+    combine->right = cyl1;
+
+
+
+    OpNode * add = new OpNode();
+    add->op = SetOp::INTERSECTION;
+    add->left = cyl3;
+    add->right = cyl2;
+
+    OpNode * diff = new OpNode();
+    diff->op = SetOp::DIFFERENCE;
+    diff->left = combine;
+    diff->right = add;
 
     csgroot = diff;
 }
