@@ -46,27 +46,19 @@ void VoxelVolume::clear()
 void VoxelVolume::fill(bool setval)
 {
 
-    //we need to build up the array for x values
-    //size of the array is the product of the 3 dimesnions
-    //TODO
-    /*int size = xdim*ydim*zdim;
-    for (int x = 0; x < size; x++){
-        *(voxgrid + x) = setval;
-    }*/
-
-
-
+    //we need to build up the array
+    //we loop through the block and assign occupied
     for (int x = 0; x < xdim; x++){
         for (int y = 0; y < ydim; y++){
             for (int z = 0; z < zdim; z++){
+                //calcualte index into the pointer
                 int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
+                //calculate index into the int bits
                 int index = ( (x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) );
                 *(voxgrid + val) |= 1 << index;
             }
         }
     }
-
-
 }
 
 void VoxelVolume::calcCellDiag()
@@ -89,16 +81,10 @@ void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
     ydim = dimy;
     zdim = dimz;
     //allocate memory for the pointer structure
-    //voxgrid = new int[xdim*ydim*zdim];
-    //TODO changed
+
     voxgrid = new int[(int)ceil((float)xdim*ydim*zdim/((float)(sizeof(int)*8)))];
-
-    //fill up with false
-    std::cout << dimx << "," << dimy << "," << dimz << std::endl;
-    //we need to build up the array for x values
-    //used fill to do this as the method is the same
+    //fill with temp values
     fill(1);
-
     calcCellDiag();
 }
 
@@ -118,7 +104,7 @@ void VoxelVolume::setFrame(cgp::Point corner, cgp::Vector diag)
 bool VoxelVolume::set(int x, int y, int z, bool setval){
 
 
-    //check dimensions
+    //check that xyz dimensions are within range
     if (x < 0 || x >= xdim){
         cout << "voxel x index out of range in set()" << endl;
         return false;
@@ -133,42 +119,36 @@ bool VoxelVolume::set(int x, int y, int z, bool setval){
     }
 
     //calculate the index into the 1D array
-    //int index = (x + xdim + ydim * (y + zdim * z));
-    //TODO changed
     int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
+    //calculate the index into the int
     int index = ((x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) ) ;
 
     //set to specified value
     if (setval){
+        //set to true
         *(voxgrid + val) |= 1 << index;
     }
     else{
+        //set to false
         *(voxgrid + val) &= ~(1 << index);
     }
-
-
     return true;
 }
 
 bool VoxelVolume::get(int x, int y, int z)
-{   //get individual values
-    //TODO
-    //int index = *(voxgrid + x + xdim + ydim * (y + zdim * z));
+{
+    //calculate the index into the 1D array
     int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
+    //calculate the index into the int
     int index = ((x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) );
 
-    //set to specified value
-
-
+    //get the values and based on result return true/false
     if (((*(voxgrid + val) >> index) & 1)){
         return true;
     }
     else{
         return false;
     }
-
-
-
 }
 
 cgp::Point VoxelVolume::getVoxelPos(int x, int y, int z)

@@ -151,16 +151,17 @@ bool Scene::bindGeometry(View * view, ShapeDrawData &sdd)
 
 void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 {
-    //TODO, needs completing
 
+    //get the dimensions
     int dimx, dimy, dimz;
     leftarg->getDim(dimx,dimy,dimz);
     cout << dimx << " " << dimy << " " << dimz << endl;
-    //for xdim then for all
 
+    //we switch on the operation
     switch(op){
         //union operation
         case SetOp::UNION:
+            //loop through the voxel and apply union operator
             for (int x = 0; x < dimx; x++){
                 for (int y = 0; y < dimy; y++){
                     for (int z = 0; z < dimz; z++){
@@ -171,6 +172,7 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
             break;
         //intersection operation
         case SetOp::INTERSECTION:
+            //loop through the voxel and apply intersection operator
             for (int x = 0; x < dimx; x++){
                 for (int y = 0; y < dimy; y++){
                     for (int z = 0; z < dimz; z++){
@@ -181,6 +183,7 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
             break;
         //diff operation
         case SetOp::DIFFERENCE:
+            //loop through the voxel and apply difference operator in 2 steps
             for (int x = 0; x < dimx; x++){
                 for (int y = 0; y < dimy; y++){
                     for (int z = 0; z < dimz; z++){
@@ -196,15 +199,13 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 
 void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 {
-
-    // will require dynamic casting of SceneNode pointers with 0's -> false
-
+    //if we have a shape node we populate the voxel
     if (ShapeNode * leaf = dynamic_cast<ShapeNode*>(root)){
-
-
+        //get dimensions
         int dimx,dimy,dimz;
         voxels->getDim(dimx,dimy,dimz);
 
+        //loop through the voxel
         for (int x = 0; x < dimx; x++){
             for (int y = 0; y < dimy; y++){
                 for (int z = 0; z < dimz; z++){
@@ -219,6 +220,7 @@ void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
         }
     }
     else if (OpNode * op = dynamic_cast<OpNode*>(root)){
+        //recurse down the left
         voxWalk(op->left,voxels);
         //VoxelVolume(int xsize, int ysize, int zsize, cgp::Point corner, cgp::Vector diag); constructor
 
@@ -229,18 +231,19 @@ void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 
         int dimx,dimy,dimz;
         voxels->getDim(dimx,dimy,dimz);
+
+        //create new voxel for the right hand side with same dimensions as previous ones
         VoxelVolume * vox2 = new VoxelVolume(dimx,dimy,dimz,corner,diag);
-
-
-
-
+        //recurse down the right
         voxWalk(op->right,vox2);
 
 
         //void voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg);
+
+        //apply operation on the 2 voxels
         voxSetOp(op->op, voxels, vox2);
-        cout << "deleting temp voxvolume" << endl;
-        //TODO this crashes
+        //cout << "deleting temp voxvolume" << endl;
+        //this crashes when using bit packing?
         //delete vox2;
         vox2 = NULL;
     }

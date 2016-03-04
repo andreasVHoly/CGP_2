@@ -34,6 +34,10 @@ void TestMesh::testBunny()
     cerr << "DRAGON TEST PASSED" << endl << endl;
 }
 
+void TestMesh::testVoxel(){
+    //CPPUNIT_ASSERT();
+}
+
 void TestMesh::testSimple()
 {
     // test simple valid 2-manifold

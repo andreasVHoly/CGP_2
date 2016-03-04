@@ -16,12 +16,16 @@ class TestMesh : public CppUnit::TestFixture
     CPPUNIT_TEST(testOpen);
     CPPUNIT_TEST(testPinch);
     CPPUNIT_TEST(testOverlap);*/
+    CPPUNIT_TEST(testVoxel);
     CPPUNIT_TEST_SUITE_END();
 
 private:
     Mesh * mesh;
 
 public:
+
+    //voxel tests
+    void testVoxel();
 
     /// Initialization before unit tests
     void setUp();

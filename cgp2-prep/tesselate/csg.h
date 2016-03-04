@@ -103,7 +103,6 @@ private:
      * @param op            boolean set operation being applied (union, intersection or difference). Applied as leftarg = leftarg op rightarg
      * @param[out] leftarg  first voxel grid argument. The result is overwritten to here for space reasons.
      * @param rightarg      second voxel grid argument.
-     * @todo Scene::voxSetOp to be completed for CGP Assignment2
      */
     void voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg);
 
@@ -111,7 +110,6 @@ private:
      * Convert a CSG tree into a VoxelVolume by evaluating it with a recursive depth-first walk
      * @param root          root node of the CSG tree
      * @param[out] voxels   volumetric representation of the CSG tree
-     * @todo Scene::voxWalk to be completed for CGP Assignment2
      */
     void voxWalk(SceneNode *root, VoxelVolume *voxels);
 
