@@ -48,10 +48,25 @@ void VoxelVolume::fill(bool setval)
 
     //we need to build up the array for x values
     //size of the array is the product of the 3 dimesnions
-    int size = xdim*ydim*zdim;
+    //TODO
+    /*int size = xdim*ydim*zdim;
     for (int x = 0; x < size; x++){
         *(voxgrid + x) = setval;
+    }*/
+
+
+
+    for (int x = 0; x < xdim; x++){
+        for (int y = 0; y < ydim; y++){
+            for (int z = 0; z < zdim; z++){
+                int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
+                int index = ( (x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) );
+                *(voxgrid + val) |= 1 << index;
+            }
+        }
     }
+
+
 }
 
 void VoxelVolume::calcCellDiag()
@@ -74,8 +89,9 @@ void VoxelVolume::setDim(int &dimx, int &dimy, int &dimz)
     ydim = dimy;
     zdim = dimz;
     //allocate memory for the pointer structure
-    voxgrid = new int[xdim*ydim*zdim];
-
+    //voxgrid = new int[xdim*ydim*zdim];
+    //TODO changed
+    voxgrid = new int[(int)ceil((float)xdim*ydim*zdim/((float)(sizeof(int)*8)))];
 
     //fill up with false
     std::cout << dimx << "," << dimy << "," << dimz << std::endl;
@@ -117,17 +133,40 @@ bool VoxelVolume::set(int x, int y, int z, bool setval){
     }
 
     //calculate the index into the 1D array
-    int index = (x + xdim + ydim * (y + zdim * z));
+    //int index = (x + xdim + ydim * (y + zdim * z));
+    //TODO changed
+    int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
+    int index = ((x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) ) ;
 
     //set to specified value
-    *(voxgrid + index) = setval;
+    if (setval){
+        *(voxgrid + val) |= 1 << index;
+    }
+    else{
+        *(voxgrid + val) &= ~(1 << index);
+    }
+
+
     return true;
 }
 
 bool VoxelVolume::get(int x, int y, int z)
 {   //get individual values
-    int index = *(voxgrid + x + xdim + ydim * (y + zdim * z));
-    return index;
+    //TODO
+    //int index = *(voxgrid + x + xdim + ydim * (y + zdim * z));
+    int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
+    int index = ((x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) );
+
+    //set to specified value
+
+
+    if (((*(voxgrid + val) >> index) & 1)){
+        return true;
+    }
+    else{
+        return false;
+    }
+
 
 
 }

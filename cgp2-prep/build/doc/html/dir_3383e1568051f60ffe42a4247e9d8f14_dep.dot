@@ -1,6 +1,0 @@
-digraph "common" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_3383e1568051f60ffe42a4247e9d8f14 [shape=box, label="common", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_3383e1568051f60ffe42a4247e9d8f14.html"];
-}

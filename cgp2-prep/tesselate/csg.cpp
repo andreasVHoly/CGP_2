@@ -196,7 +196,7 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
 
 void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 {
-    //TODO, needs completing
+
     // will require dynamic casting of SceneNode pointers with 0's -> false
 
     if (ShapeNode * leaf = dynamic_cast<ShapeNode*>(root)){
@@ -239,9 +239,10 @@ void Scene::voxWalk(SceneNode *root, VoxelVolume *voxels)
 
         //void voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg);
         voxSetOp(op->op, voxels, vox2);
-        cout << "deleting" << endl;
-        delete vox2;
-        //TODO need to delete the VoxelVolume
+        cout << "deleting temp voxvolume" << endl;
+        //TODO this crashes
+        //delete vox2;
+        vox2 = NULL;
     }
 
 
