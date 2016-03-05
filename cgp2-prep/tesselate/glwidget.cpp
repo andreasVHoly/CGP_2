@@ -39,8 +39,8 @@ GLWidget::GLWidget(const QGLFormat& format, QWidget *parent)
     glewSetupDone = false;
     updateGeometry = true;
     meshVisible = false;
-
-    scene.sampleScene();
+    scene.pointScene();
+    //scene.sampleScene();
     //scene.expensiveScene();
     setMouseTracking(true);
     setFocusPolicy(Qt::StrongFocus);

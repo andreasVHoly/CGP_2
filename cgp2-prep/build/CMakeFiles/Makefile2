@@ -228,8 +228,8 @@ clean: tesselate/CMakeFiles/tess_automoc.dir/clean
 
 # All Build rule for target.
 tesselate/CMakeFiles/tessviewer.dir/all: common/CMakeFiles/common.dir/all
-tesselate/CMakeFiles/tessviewer.dir/all: tesselate/CMakeFiles/tess.dir/all
 tesselate/CMakeFiles/tessviewer.dir/all: tesselate/CMakeFiles/tessviewer_automoc.dir/all
+tesselate/CMakeFiles/tessviewer.dir/all: tesselate/CMakeFiles/tess.dir/all
 	$(MAKE) -f tesselate/CMakeFiles/tessviewer.dir/build.make tesselate/CMakeFiles/tessviewer.dir/depend
 	$(MAKE) -f tesselate/CMakeFiles/tessviewer.dir/build.make tesselate/CMakeFiles/tessviewer.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/user/Honours/CGP/Ass2/cgp2-prep/build/CMakeFiles  19 20
