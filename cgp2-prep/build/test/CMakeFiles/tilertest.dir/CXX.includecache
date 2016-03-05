@@ -64,6 +64,18 @@ inttypes.h
 stdint.h
 -
 
+../tesselate/csg.h
+vector
+-
+stdio.h
+-
+iostream
+-
+mesh.h
+../tesselate/mesh.h
+voxels.h
+../tesselate/voxels.h
+
 ../tesselate/glheaders.h
 GL/gl3.h
 -
@@ -170,6 +182,16 @@ string
 glm/glm.hpp
 -
 
+../tesselate/voxels.h
+vector
+-
+stdio.h
+-
+iostream
+-
+vecpnt.h
+../tesselate/vecpnt.h
+
 ../test/testutil.h
 array
 -
@@ -205,6 +227,10 @@ cppunit/extensions/HelperMacros.h
 -
 tesselate/mesh.h
 /home/user/Honours/CGP/Ass2/cgp2-prep/test/tesselate/mesh.h
+tesselate/csg.h
+/home/user/Honours/CGP/Ass2/cgp2-prep/test/tesselate/csg.h
+tesselate/voxels.h
+/home/user/Honours/CGP/Ass2/cgp2-prep/test/tesselate/voxels.h
 
 /usr/include/qt5/QtCore/QDebug
 qdebug.h

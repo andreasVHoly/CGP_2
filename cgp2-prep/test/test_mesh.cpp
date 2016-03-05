@@ -35,7 +35,12 @@ void TestMesh::testBunny()
 }
 
 void TestMesh::testVoxel(){
-    //CPPUNIT_ASSERT();
+    VoxelVolume vox;
+    CPPUNIT_ASSERT(vox.testSetGetDim());
+    VoxelVolume vox2;
+    CPPUNIT_ASSERT(vox2.testSetGet());
+    VoxelVolume vox3;
+    CPPUNIT_ASSERT(vox3.testFill());
 }
 
 void TestMesh::testSimple()

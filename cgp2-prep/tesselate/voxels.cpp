@@ -39,9 +39,6 @@ void VoxelVolume::clear()
     }
 }
 
-//3d to 1d alg
-//Flat[x + WIDTH * (y + DEPTH * z)] = Original[x, y, z]
-//*(voxgrid + x + xdim + ydim * (y + zdim * z)) -> should point into right position
 
 void VoxelVolume::fill(bool setval)
 {
@@ -55,7 +52,14 @@ void VoxelVolume::fill(bool setval)
                 int val = (int)ceil((float)(x + xdim + ydim * (y + zdim * z))/((float)(sizeof(int)*8)));
                 //calculate index into the int bits
                 int index = ( (x + xdim + ydim * (y + zdim * z))) % ((sizeof(int)*8) );
-                *(voxgrid + val) |= 1 << index;
+                //if we want to fill with occupied
+                if (setval){
+                    *(voxgrid + val) |= 1 << index;
+                }
+                //if not
+                else{
+                    *(voxgrid + val) ^= 1 << index;
+                }
             }
         }
     }
@@ -163,4 +167,80 @@ cgp::Point VoxelVolume::getVoxelPos(int x, int y, int z)
 
     pnt = cgp::Point(origin.x + px * diagonal.i + 0.5f * cell.i, origin.y + py * diagonal.j + 0.5f * cell.j, origin.z + pz * diagonal.k + 0.5f * cell.k); // convert from voxel space to world coordinates
     return pnt;
+}
+
+
+bool VoxelVolume::testFill(){
+    //set 10x10x10 dimensions
+    int xS = 2, yS = 2, zS = 2;
+    setDim(xS,yS,zS);
+    //the set dim called above would have filled the entire volume to filled
+    for (int x = 0; x < xS; x++){
+        for (int y = 0; y < yS; y++){
+            for (int z = 0; z < zS; z++){
+                //calculate the index into the 1D array
+                int val = (int)ceil((float)(x + xS + yS * (y + zS * z))/((float)(sizeof(int)*8)));
+                //calculate the index into the int
+                int index = ((x + xS + yS * (y + zS * z))) % ((sizeof(int)*8) );
+                //if one position is not filled, fill method in set failed
+                if (!((*(voxgrid + val) >> index) & 1)){
+                    cout <<"failed on first for loop" << endl;
+                    return false;
+                }
+            }
+        }
+    }
+
+    //means all were filled and first fill worked
+    //now we fill with empty
+    fill(0);
+    //check that all are empty
+    for (int x = 0; x < xS; x++){
+        for (int y = 0; y < yS; y++){
+            for (int z = 0; z < zS; z++){
+                //calculate the index into the 1D array
+                int val = (int)ceil((float)(x + xS + yS * (y + zS * z))/((float)(sizeof(int)*8)));
+                //calculate the index into the int
+                int index = ((x + xS + yS * (y + zS * z))) % ((sizeof(int)*8));
+                //if one position is not filled, fill method in set failed
+                if (((*(voxgrid + val) >> index) & 1)){
+                    cout <<"failed on second loop" << endl;
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+
+}
+
+bool VoxelVolume::testSetGet(){
+    //set 10x10x10 dimensions
+    int xS = 10, yS = 10, zS = 10;
+    setDim(xS,yS,zS);
+    //get initial value of 0 1 2 which is true (1) because of the fill method
+    bool initial = get(0,1,2);
+    //set 0 1 2 to empty (false)
+    set(0,1,2, false);
+    //get value again
+    bool change = get(0,1,2);
+    //if they are both true set had no effect
+    if (initial == change){
+        return false;
+    }
+    return true;
+}
+
+bool VoxelVolume::testSetGetDim(){
+    //set 10x10x10 dimensions
+    int xS = 10, yS = 10, zS = 10;
+    setDim(xS,yS,zS);
+    int x, y, z;
+    //read dimensions
+    getDim(x,y,z);
+    //check that setDim operation had effect
+    if (x != 10 || y != 10 || z != 10){
+        return false;
+    }
+    return true;
 }

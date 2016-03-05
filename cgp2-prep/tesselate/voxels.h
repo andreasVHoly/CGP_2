@@ -32,6 +32,17 @@ private:
 
 public:
 
+
+    //testing
+    bool testFill();
+
+    bool testSetGet();
+
+    bool testSetGetDim();
+
+
+
+
     /// Default constructor
     VoxelVolume();
 
@@ -100,7 +111,7 @@ public:
      * @param x, y, z   3D location, zero indexed
      * @retval true if the voxel is occupied,
      * @retval false if the voxel is empty.
-     * 
+     *
      */
     bool get(int x, int y, int z);
 

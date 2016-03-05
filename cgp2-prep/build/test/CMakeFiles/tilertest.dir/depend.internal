@@ -10,6 +10,7 @@ test/CMakeFiles/tilertest.dir/test_mesh.cpp.o
  ../khronos_headers/GLES2/gl2.h
  ../khronos_headers/GLES2/gl2platform.h
  ../khronos_headers/KHR/khrplatform.h
+ ../tesselate/csg.h
  ../tesselate/glheaders.h
  ../tesselate/mesh.h
  ../tesselate/renderer.h
@@ -18,6 +19,7 @@ test/CMakeFiles/tilertest.dir/test_mesh.cpp.o
  ../tesselate/timer.h
  ../tesselate/vecpnt.h
  ../tesselate/view.h
+ ../tesselate/voxels.h
  ../test/testutil.h
  /home/user/Honours/CGP/Ass2/cgp2-prep/test/test_mesh.cpp
  /home/user/Honours/CGP/Ass2/cgp2-prep/test/test_mesh.h

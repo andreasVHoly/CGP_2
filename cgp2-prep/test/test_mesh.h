@@ -5,6 +5,8 @@
 #include <string>
 #include <cppunit/extensions/HelperMacros.h>
 #include "tesselate/mesh.h"
+#include "tesselate/csg.h"
+#include "tesselate/voxels.h"
 
 /// Test code for @ref Mesh
 class TestMesh : public CppUnit::TestFixture

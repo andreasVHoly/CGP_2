@@ -274,7 +274,7 @@ void Scene::voxelise(float voxlen)
         voxWalk(csgroot, &vox);
 }
 
-/*void Scene::sampleScene()
+void Scene::sampleScene()
 {
     ShapeNode * sph = new ShapeNode();
     sph->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 4.0f);
@@ -296,9 +296,9 @@ void Scene::voxelise(float voxlen)
     diff->right = cyl2;
 
     csgroot = diff;
-}*/
+}
 
-void Scene::sampleScene()
+/*void Scene::sampleScene()
 {
     ShapeNode * sph = new ShapeNode();
     sph->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 4.0f);
@@ -330,7 +330,7 @@ void Scene::sampleScene()
     diff->right = add;
 
     csgroot = diff;
-}
+}*/
 
 void Scene::expensiveScene()
 {

@@ -9,6 +9,7 @@ test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../khronos_headers/GL/gl3.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../khronos_headers/GLES2/gl2.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../khronos_headers/GLES2/gl2platform.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../khronos_headers/KHR/khrplatform.h
+test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/csg.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/glheaders.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/mesh.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/renderer.h
@@ -17,6 +18,7 @@ test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/shape.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/timer.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/vecpnt.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/view.h
+test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../tesselate/voxels.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../test/testutil.h
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../test/test_mesh.cpp
 test/CMakeFiles/tilertest.dir/test_mesh.cpp.o: ../test/test_mesh.h

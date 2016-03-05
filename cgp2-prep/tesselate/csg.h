@@ -36,7 +36,7 @@ public:
     SceneNode * left, * right;
     SetOp op;
 
-    ~OpNode(){ delete left; delete right; }
+    ~OpNode(){ delete left; delete right; cout << "deleted left and right " << endl;}
 };
 
 class ShapeNode: public SceneNode
@@ -44,7 +44,9 @@ class ShapeNode: public SceneNode
 public:
     BaseShape * shape;
 
-    ~ShapeNode(){ delete shape; }
+    ~ShapeNode(){
+        cout << "deleted shape in shape node" << endl;
+        delete shape; }
 };
 
 /**
