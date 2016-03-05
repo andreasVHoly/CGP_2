@@ -40,7 +40,7 @@ GLWidget::GLWidget(const QGLFormat& format, QWidget *parent)
     updateGeometry = true;
     meshVisible = false;
     scene.pointScene();
-    scene.sampleScene();
+    //scene.sampleScene();
     //scene.expensiveScene();
     setMouseTracking(true);
     setFocusPolicy(Qt::StrongFocus);
