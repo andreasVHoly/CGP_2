@@ -77,6 +77,7 @@ private:
 
 
 
+
     //added
 
     /**
@@ -157,6 +158,14 @@ public:
      * create a sample csg tree to test different shapes and operators. Expensive because it uses mesh point containment with the Bunny.
      */
     void expensiveScene();
+
+    void testScene();
+    void pointScene();
+    //added for tests
+    //testing
+    bool testTreeTraversal(int size);
+    bool testPointContainment();
+
 };
 
 #endif

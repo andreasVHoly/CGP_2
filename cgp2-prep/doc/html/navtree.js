@@ -1,7 +1,6 @@
 var NAVTREE =
 [
   [ "CGP", "index.html", [
-    [ "Todo List", "todo.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -26,7 +25,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"classVoxelVolume.html#a0a2d4443d5407789e575c07153d847d4"
+"classView.html#afd6f1cbca0d86d67acd065063bdb4e75",
+"voxels_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

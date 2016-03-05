@@ -20,6 +20,62 @@ void TestMesh::tearDown()
     delete mesh;
 }
 
+
+//_________//
+//NEW TESTS//
+//---------//
+void TestMesh::testVoxel(){
+    cout << "...TESTING VOXEL METHODS..." << endl<<endl;
+    VoxelVolume vox;
+    CPPUNIT_ASSERT(vox.testSetGetDim());
+    VoxelVolume vox2;
+    CPPUNIT_ASSERT(vox2.testSetGet());
+    VoxelVolume vox3;
+    CPPUNIT_ASSERT(vox3.testFill());
+    cout << "...ALL VOXEL TESTS PASSED..." << endl<<endl;
+}
+
+
+void TestMesh::testCSG(){
+    cout << "...TESTING CSG TREE METHODS..." << endl<<endl;
+    //__________________________________________
+    //TESTING TREE TRAVERSAL TO FIND ALL SHAPE LEAVES
+    //sample scence with 3 leaves
+    Scene scene;
+    scene.sampleScene();
+    CPPUNIT_ASSERT(scene.testTreeTraversal(3));
+
+    //made a scene with 5 leaf nodes
+    //check to see if traversal finds all 5
+    Scene scene2;
+    scene2.testScene();
+    CPPUNIT_ASSERT(scene2.testTreeTraversal(5));
+    //__________________________________________
+
+
+
+    //__________________________________________
+
+    //__________________________________________
+    cout << "...ALL CSG TREE TESTS PASSED..." << endl<<endl;
+
+
+    cout << "...TESTING POINT CONTAINMENT METHOD..." <<endl<<endl;
+
+    //__________________________________________
+    Scene scene3;
+    //CPPUNIT_ASSERT(scene3.testPointContainment());
+    //__________________________________________
+    cout << "...ALL POINT CONTAINMENT TESTS PASSED..." << endl<<endl;
+}
+
+
+
+
+//_________//
+//NEW TESTS//
+//---------//
+
 void TestMesh::testBunny()
 {
 
@@ -34,14 +90,7 @@ void TestMesh::testBunny()
     cerr << "DRAGON TEST PASSED" << endl << endl;
 }
 
-void TestMesh::testVoxel(){
-    VoxelVolume vox;
-    CPPUNIT_ASSERT(vox.testSetGetDim());
-    VoxelVolume vox2;
-    CPPUNIT_ASSERT(vox2.testSetGet());
-    VoxelVolume vox3;
-    CPPUNIT_ASSERT(vox3.testFill());
-}
+
 
 void TestMesh::testSimple()
 {

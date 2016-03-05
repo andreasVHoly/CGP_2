@@ -9,7 +9,7 @@ var searchData=
   ['saveasact',['saveAsAct',['../classWindow.html#a5ad8fe51e19f8249ce7855834f428b04',1,'Window']]],
   ['savefile',['saveFile',['../classWindow.html#af8bab58e056e3d00aab5935611e346df',1,'Window']]],
   ['scale',['scale',['../classMesh.html#acf10c6ddf8437dedef24ee8ec2364956',1,'Mesh']]],
-  ['scene',['Scene',['../classScene.html',1,'Scene'],['../classGLWidget.html#a0eab675250a93af1ca9278560d14c902',1,'GLWidget::scene()'],['../classScene.html#ad10176d75a9cc0da56626f682d083507',1,'Scene::Scene()']]],
+  ['scene',['Scene',['../classScene.html',1,'Scene'],['../classScene.html#ad10176d75a9cc0da56626f682d083507',1,'Scene::Scene()'],['../classGLWidget.html#a0eab675250a93af1ca9278560d14c902',1,'GLWidget::scene()']]],
   ['scenenode',['SceneNode',['../classSceneNode.html',1,'']]],
   ['serialize',['serialize',['../classcgp_1_1Point.html#ad68fe40bde6aaf38aa357a76f6c58af2',1,'cgp::Point::serialize()'],['../classcgp_1_1Vector.html#aa7b2d0b42b68c05ad233dcfef6d9a7ec',1,'cgp::Vector::serialize()']]],
   ['set',['set',['../classVoxelVolume.html#a2d0f093d9f7cf0085e1e3ebdc58e5f0d',1,'VoxelVolume']]],

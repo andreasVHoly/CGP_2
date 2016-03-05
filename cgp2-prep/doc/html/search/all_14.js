@@ -7,7 +7,7 @@ var searchData=
   ['vector',['Vector',['../classcgp_1_1Vector.html',1,'cgp']]],
   ['vector',['Vector',['../classcgp_1_1Vector.html#a73d5bbdceaa7cdd4cc14dc611e49900d',1,'cgp::Vector::Vector()'],['../classcgp_1_1Vector.html#aaf8298a1cf853d51fe90d8bafd31ad34',1,'cgp::Vector::Vector(float a, float b, float c)']]],
   ['verts',['verts',['../classMesh.html#a61c3971017ebe11cb949d86ebd9b06a1',1,'Mesh::verts()'],['../classShapeGeometry.html#aa55ab63b04ff7f77f211e76b10e6d7e2',1,'ShapeGeometry::verts()']]],
-  ['view',['View',['../classView.html',1,'View'],['../classGLWidget.html#ac85edfcfe35aa85fca8561fb060846ff',1,'GLWidget::view()'],['../classView.html#a44ad60a768422d3fa8fbd7576950080a',1,'View::View()'],['../classView.html#ac3088731679d7936c98401d60597ea6e',1,'View::View(float extent)']]],
+  ['view',['View',['../classView.html',1,'View'],['../classView.html#a44ad60a768422d3fa8fbd7576950080a',1,'View::View()'],['../classView.html#ac3088731679d7936c98401d60597ea6e',1,'View::View(float extent)'],['../classGLWidget.html#ac85edfcfe35aa85fca8561fb060846ff',1,'GLWidget::view()']]],
   ['view_2eh',['view.h',['../view_8h.html',1,'']]],
   ['viewing',['viewing',['../classGLWidget.html#abb3b2460646c3532a7639bf09ec5827a',1,'GLWidget']]],
   ['viewmenu',['viewMenu',['../classWindow.html#ad3597755ed9847bc031805b262898c3c',1,'Window']]],

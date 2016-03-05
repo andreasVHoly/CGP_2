@@ -51,7 +51,7 @@ void Scene::inOrderWalk(SceneNode* node){
 
     //check if we have a shape node, cast will fail if not
     if (ShapeNode * sn = dynamic_cast<ShapeNode*>(node)){
-        std::cout << "Found leaf node with " << std::endl;
+        //std::cout << "Found leaf node with " << std::endl;
         leaves.push_back(sn);
     }
     else{
@@ -127,14 +127,17 @@ void Scene::clear(){
 //cleans up the tree
 void Scene::deleteTree(){
     //we need to cast as we want to get access to left and right
-
+    //cout << "called delete tree " << endl;
     //we check if the root can be cast to a OpNode -> it should allow this
     //delete the child if we find it
+    //to see that this works, enable the print statements and see that each of the child destructors get called down the tree
     if (OpNode * rn = dynamic_cast<OpNode*>(csgroot)){
+        //cout << "called right " << endl;
         delete rn->right;
     }
     //we check for the left child and delete if found
     if (OpNode * ln = dynamic_cast<OpNode*>(csgroot)){
+        //cout << "called left " << endl;
         delete ln->left;
     }
 }
@@ -155,7 +158,7 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
     //get the dimensions
     int dimx, dimy, dimz;
     leftarg->getDim(dimx,dimy,dimz);
-    cout << dimx << " " << dimy << " " << dimz << endl;
+    //cout << dimx << " " << dimy << " " << dimz << endl;
 
     //we switch on the operation
     switch(op){
@@ -183,7 +186,7 @@ void Scene::voxSetOp(SetOp op, VoxelVolume *leftarg, VoxelVolume *rightarg)
             break;
         //diff operation
         case SetOp::DIFFERENCE:
-            //loop through the voxel and apply difference operator in 2 steps
+            //loop through the voxel and apply difference operator in 2 steps, a AND applied to the result of a XOR
             for (int x = 0; x < dimx; x++){
                 for (int y = 0; y < dimy; y++){
                     for (int z = 0; z < dimz; z++){
@@ -297,8 +300,8 @@ void Scene::sampleScene()
 
     csgroot = diff;
 }
-
-/*void Scene::sampleScene()
+//used to test the number of leaves
+void Scene::testScene()
 {
     ShapeNode * sph = new ShapeNode();
     sph->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 4.0f);
@@ -312,25 +315,32 @@ void Scene::sampleScene()
     ShapeNode * cyl3 = new ShapeNode();
     cyl3->shape = new Cylinder(cgp::Point(0.0f, -7.0f, -7.0f), cgp::Point(0.0f, 7.0f, 7.0f), 3.0f);
 
+
+    ShapeNode * sph2 = new ShapeNode();
+    sph2->shape = new Sphere(cgp::Point(1.0f, 1.0f, -1.0f), 3.0f);
+
     OpNode * combine = new OpNode();
     combine->op = SetOp::UNION;
-    combine->left = sph;
-    combine->right = cyl1;
+    combine->left = cyl1;
+    combine->right = cyl2;
 
-
-
-    OpNode * add = new OpNode();
-    add->op = SetOp::INTERSECTION;
-    add->left = cyl3;
-    add->right = cyl2;
+    OpNode * ints = new OpNode();
+    ints->op = SetOp::INTERSECTION;
+    ints->left = sph2;
+    ints->right = cyl3;
 
     OpNode * diff = new OpNode();
     diff->op = SetOp::DIFFERENCE;
     diff->left = combine;
-    diff->right = add;
+    diff->right = sph;
 
-    csgroot = diff;
-}*/
+    OpNode * top = new OpNode();
+    top->op = SetOp::UNION;
+    top->left = diff;
+    top->right = ints;
+
+    csgroot = top;
+}
 
 void Scene::expensiveScene()
 {
@@ -357,4 +367,86 @@ void Scene::expensiveScene()
     diff->right = mesh;
 
     csgroot = diff;
+}
+
+
+void Scene::pointScene(){
+    ShapeNode * sph = new ShapeNode();
+    //create basic sphere with r = 1
+    sph->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 1.0f);
+    csgroot = sph;
+}
+
+
+bool Scene::testTreeTraversal(int size){
+    inOrderWalk(csgroot);
+    if (leaves.size() != size){
+        return false;
+    }
+    return true;
+
+}
+
+
+bool Scene::testPointContainment(){
+    pointScene();
+    //convert node
+    ShapeNode * leaf = dynamic_cast<ShapeNode*>(csgroot);
+    //create positive test points
+    //centre
+    cgp::Point p1(0.0f,0.0f,0.0f);
+    //all edge cases in axis
+    cgp::Point p2(1.0f,1.0f,0.0f);
+    cgp::Point p3(0.0f,1.0f,1.0f);
+    cgp::Point p4(1.0f,0.0f,1.0f);
+    cgp::Point p5(-1.0f,-1.0f,0.0f);
+    cgp::Point p6(0.0f,-1.0f,-1.0f);
+    cgp::Point p7(-1.0f,0.0f,-1.0f);
+
+    //create negative test points
+    cgp::Point p8(1.0f,1.0f,1.0f);
+    cgp::Point p9(2.0f,2.0f,0.0f);
+
+
+    if (!leaf->shape->pointContainment(p1)){
+        cout << "Point 1 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p2)){
+        cout << "Point 2 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p1)){
+        cout << "Point 3 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p4)){
+        cout << "Point 4 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p5)){
+        cout << "Point 5 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p6)){
+        cout << "Point 6 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p7)){
+        cout << "Point 7 failed" << endl;
+        return false;
+    }
+    if (leaf->shape->pointContainment(p8)){
+        cout << "Point 8 failed" << endl;
+        return false;
+    }
+    if (leaf->shape->pointContainment(p9)){
+        cout << "Point 9 failed" << endl;
+        return false;
+    }
+
+
+
+
+
 }

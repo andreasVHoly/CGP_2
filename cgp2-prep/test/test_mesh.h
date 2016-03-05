@@ -19,6 +19,7 @@ class TestMesh : public CppUnit::TestFixture
     CPPUNIT_TEST(testPinch);
     CPPUNIT_TEST(testOverlap);*/
     CPPUNIT_TEST(testVoxel);
+    CPPUNIT_TEST(testCSG);
     CPPUNIT_TEST_SUITE_END();
 
 private:
@@ -28,6 +29,9 @@ public:
 
     //voxel tests
     void testVoxel();
+
+    //test csg class
+    void testCSG();
 
     /// Initialization before unit tests
     void setUp();

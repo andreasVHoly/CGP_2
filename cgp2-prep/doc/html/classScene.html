@@ -44,7 +44,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -93,7 +92,7 @@ $(document).ready(function(){initNavTree('classScene.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -173,6 +172,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteTree</b> ()</td
 <tr class="memitem:aee78f289cfe9416f1125479f9c3e0885"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee78f289cfe9416f1125479f9c3e0885"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>inOrderWalk</b> (<a class="el" href="classSceneNode.html">SceneNode</a> *node)</td></tr>
 <tr class="separator:aee78f289cfe9416f1125479f9c3e0885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4433c83cb09d33f412c0a633370eef4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4433c83cb09d33f412c0a633370eef4d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>applyUnion</b> ()</td></tr>
+<tr class="separator:a4433c83cb09d33f412c0a633370eef4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad311bb916ab591f2d6db19f46adf93ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad311bb916ab591f2d6db19f46adf93ca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>applyDifference</b> ()</td></tr>
+<tr class="separator:ad311bb916ab591f2d6db19f46adf93ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239b5cc20c23902c74e3f6a30a201a5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a239b5cc20c23902c74e3f6a30a201a5b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>applyIntersection</b> ()</td></tr>
+<tr class="separator:a239b5cc20c23902c74e3f6a30a201a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2683f694189bb3f94f2558298d8f8886"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#a2683f694189bb3f94f2558298d8f8886">genVizRender</a> (<a class="el" href="classView.html">View</a> *view, <a class="el" href="structShapeDrawData.html">ShapeDrawData</a> &amp;sdd)</td></tr>
 <tr class="memdesc:a2683f694189bb3f94f2558298d8f8886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate triangle mesh geometry for OpenGL rendering of all leaf nodes.  <a href="#a2683f694189bb3f94f2558298d8f8886">More...</a><br/></td></tr>
 <tr class="separator:a2683f694189bb3f94f2558298d8f8886"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -456,7 +464,6 @@ std::vector&lt; <a class="el" href="classShapeNode.html">ShapeNode</a> * &gt;&#1
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><a class="el" href="classScene.html#ab79bbdd353b68841327569eb89c1481e" title="Apply a boolean set operator given two volumetric operands. ">Scene::voxSetOp</a> to be completed for CGP Assignment2 </dd></dl>
 
 </div>
 </div>
@@ -500,7 +507,6 @@ std::vector&lt; <a class="el" href="classShapeNode.html">ShapeNode</a> * &gt;&#1
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><a class="el" href="classScene.html#a9cecf3cbf71213a284de9b2e30ad4c60" title="Convert a CSG tree into a VoxelVolume by evaluating it with a recursive depth-first walk...">Scene::voxWalk</a> to be completed for CGP Assignment2 </dd></dl>
 
 </div>
 </div>
@@ -538,7 +544,7 @@ std::vector&lt; <a class="el" href="classShapeNode.html">ShapeNode</a> * &gt;&#1
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classScene.html">Scene</a></li>
-    <li class="footer">Generated on Tue Mar 1 2016 22:41:55 for CGP by
+    <li class="footer">Generated on Sat Mar 5 2016 14:37:24 for CGP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

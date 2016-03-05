@@ -13,8 +13,7 @@ var indexSectionsWithContent =
   3: "abcdefghiklmnoprstuvw~",
   4: "abcdefghilmnoprstuvxyz",
   5: "s",
-  6: "diu",
-  7: "t"
+  6: "diu"
 };
 
 var indexSectionNames =
@@ -25,8 +24,7 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "enums",
-  6: "enumvalues",
-  7: "pages"
+  6: "enumvalues"
 };
 
 function convertToId(search)

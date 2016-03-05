@@ -44,7 +44,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -93,7 +92,7 @@ $(document).ready(function(){initNavTree('classVoxelVolume.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -123,19 +122,22 @@ $(document).ready(function(){initNavTree('classVoxelVolume.html','');});
   <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a2d0f093d9f7cf0085e1e3ebdc58e5f0d">set</a>(int x, int y, int z, bool setval)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classVoxelVolume.html#ab77b01a8294cb3662b15c7f84b66470b">setDim</a>(int &amp;dimx, int &amp;dimy, int &amp;dimz)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a052172978b56c04e2cebb55fa955732b">setFrame</a>(cgp::Point corner, cgp::Vector diag)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#a0a2d4443d5407789e575c07153d847d4">VoxelVolume</a>()</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#affbd29bc184d4afa6f0b3910958f9e90">VoxelVolume</a>(int xsize, int ysize, int zsize, cgp::Point corner, cgp::Vector diag)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#ac70e43147196e996814024abcd5d8eec">voxgrid</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a6995826e4c5afb58bc8c06a3143b9e70">xdim</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#a6365708eb2faef895d4cf4766f85fc2e">ydim</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a77acee933dc5d59057b6ef58df7bce8b">zdim</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#a4ac23a5e92d140a3d7fbf12685ab7b8f">~VoxelVolume</a>()</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>testFill</b>() (defined in <a class="el" href="classVoxelVolume.html">VoxelVolume</a>)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>testSetGet</b>() (defined in <a class="el" href="classVoxelVolume.html">VoxelVolume</a>)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>testSetGetDim</b>() (defined in <a class="el" href="classVoxelVolume.html">VoxelVolume</a>)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a0a2d4443d5407789e575c07153d847d4">VoxelVolume</a>()</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#affbd29bc184d4afa6f0b3910958f9e90">VoxelVolume</a>(int xsize, int ysize, int zsize, cgp::Point corner, cgp::Vector diag)</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#ac70e43147196e996814024abcd5d8eec">voxgrid</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#a6995826e4c5afb58bc8c06a3143b9e70">xdim</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a6365708eb2faef895d4cf4766f85fc2e">ydim</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classVoxelVolume.html#a77acee933dc5d59057b6ef58df7bce8b">zdim</a></td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classVoxelVolume.html#a4ac23a5e92d140a3d7fbf12685ab7b8f">~VoxelVolume</a>()</td><td class="entry"><a class="el" href="classVoxelVolume.html">VoxelVolume</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Mar 1 2016 22:41:55 for CGP by
+    <li class="footer">Generated on Sat Mar 5 2016 14:37:24 for CGP by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

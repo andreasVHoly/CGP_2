@@ -2,6 +2,9 @@ var classScene =
 [
     [ "Scene", "classScene.html#ad10176d75a9cc0da56626f682d083507", null ],
     [ "~Scene", "classScene.html#a3b8cec2e32546713915f8c6303c951f1", null ],
+    [ "applyDifference", "classScene.html#ad311bb916ab591f2d6db19f46adf93ca", null ],
+    [ "applyIntersection", "classScene.html#a239b5cc20c23902c74e3f6a30a201a5b", null ],
+    [ "applyUnion", "classScene.html#a4433c83cb09d33f412c0a633370eef4d", null ],
     [ "bindGeometry", "classScene.html#a792517b7fa094a9ccf9fe93deaa51365", null ],
     [ "clear", "classScene.html#a70e5b1218abb729d70d9f41b107017f9", null ],
     [ "deleteTree", "classScene.html#aedb4ac1181380f7be0b3447cd9d317a8", null ],
