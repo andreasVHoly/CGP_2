@@ -55,7 +55,17 @@ void TestMesh::testCSG(){
 
 
     //__________________________________________
+    //difference
+    Scene scene5;
+    //CPPUNIT_ASSERT(scene5.finalTest(0));
 
+    //intersection
+    Scene scene4;
+    //CPPUNIT_ASSERT(scene4.finalTest(1));
+
+    //union
+    Scene scene6;
+    CPPUNIT_ASSERT(scene6.finalTest(2));
     //__________________________________________
     cout << "...ALL CSG TREE TESTS PASSED..." << endl<<endl;
 
@@ -64,7 +74,7 @@ void TestMesh::testCSG(){
 
     //__________________________________________
     Scene scene3;
-    //CPPUNIT_ASSERT(scene3.testPointContainment());
+    CPPUNIT_ASSERT(scene3.testPointContainment());
     //__________________________________________
     cout << "...ALL POINT CONTAINMENT TESTS PASSED..." << endl<<endl;
 }

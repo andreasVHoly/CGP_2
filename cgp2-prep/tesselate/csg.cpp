@@ -387,6 +387,206 @@ bool Scene::testTreeTraversal(int size){
 
 }
 
+void Scene::doubleSphereUnion(){
+    ShapeNode * sph1 = new ShapeNode();
+    sph1->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 1.0f);
+
+    ShapeNode * sph2 = new ShapeNode();
+    sph2->shape = new Sphere(cgp::Point(1.0f, 0.0f, 0.0f), 1.0f);
+
+
+    OpNode * node1 = new OpNode();
+    node1->op = SetOp::UNION;
+    node1->left = sph1;
+    node1->right = sph2;
+
+    csgroot = node1;
+}
+
+void Scene::doubleSphereInts(){
+
+    ShapeNode * sph1 = new ShapeNode();
+    sph1->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 1.0f);
+
+    ShapeNode * sph2 = new ShapeNode();
+    sph2->shape = new Sphere(cgp::Point(1.0f, 0.0f, 0.0f), 1.0f);
+
+
+    OpNode * node1 = new OpNode();
+    node1->op = SetOp::INTERSECTION;
+    node1->left = sph1;
+    node1->right = sph2;
+
+    csgroot = node1;
+}
+void Scene::doubleSphereDiff(){
+
+    ShapeNode * sph1 = new ShapeNode();
+    sph1->shape = new Sphere(cgp::Point(0.0f, 0.0f, 0.0f), 1.0f);
+
+    ShapeNode * sph2 = new ShapeNode();
+    sph2->shape = new Sphere(cgp::Point(1.0f, 0.0f, 0.0f), 1.0f);
+
+
+    OpNode * node1 = new OpNode();
+    node1->op = SetOp::DIFFERENCE;
+    node1->left = sph1;
+    node1->right = sph2;
+
+    csgroot = node1;
+}
+
+
+
+bool Scene::finalTest(int test){
+    //when testing with the 2 spheres the key points will be used to test:
+    //0,0,0 (origin & edges of sphere 2)
+
+    switch (test){
+        case 0:
+            doubleSphereDiff();
+            voxelise(0.05f);
+            //if we apply the difference between the 2 spheres, the right side of sphere one wil be easten away by sphere 2
+            return differencePoints();
+        case 1:
+            //if we apply the intersection\ between the 2 spheres, the part where they overalp remains (right side of sphere 1 and left side of sphere 2), the part that was eaten away in the test above
+            doubleSphereInts();
+            voxelise(0.05f);
+            return intersectionPoints();
+        case 2:
+            //both spheres remain fully
+            doubleSphereUnion();
+            voxelise(0.05f);
+            return unionPoints();
+        default:
+            return false;
+    }
+}
+
+
+bool Scene::intersectionPoints(){
+    //if this operation worked, both origins should feature
+    if (!vox.get(0,0,0) || !vox.get(1,0,0)){
+        cout << "Origin was false" << endl;
+        return false;
+    }
+
+    //top of the spheres
+    if (vox.get(0,1,0) || vox.get(1,1,0)){
+        cout << "Top was set to false" << endl;
+        return false;
+    }
+
+    //left and right side of the spheres
+    if (vox.get(-1,0,0) || vox.get(2,0,0)){
+        cout << "left|right side was set to true" << endl;
+        return false;
+    }
+
+
+    //check extremes and half way poiints
+    if (vox.get(1,-1,0) || vox.get(1,1,0)  || vox.get(1,1,-1)  || vox.get(1,1,1) || !vox.get(0.5,0.5,0.5) || !vox.get(0.5,-0.5,0.5)){
+        cout << "extremes failed" << endl;
+        return false;
+    }
+
+    //check if 3d points of sphere1 exist
+    if (vox.get(0,0,-1) || vox.get(0,0,1) || !vox.get(-0.5,-0.5,-0.5) || !vox.get(-0.5,-0.5,0.5)){
+        cout << "spehre 1 3d points failed" << endl;
+        return false;
+    }
+
+    //check if 3d points of sphere2 exist
+    if (vox.get(1,0,-1) || vox.get(1,0,1) || !vox.get(-1.5,-0.5,-0.5) || !vox.get(-1.5,-0.5,0.5)){
+        cout << "spehre 2 3d points failed" << endl;
+        return false;
+    }
+
+
+    return true;
+}
+
+
+bool Scene::differencePoints(){
+    //if this operation worked, the origin should be false
+    if (vox.get(0,0,0)){
+        cout << "Origin was set to true" << endl;
+        return false;
+    }
+
+    //top of the sphere should still be true
+    if (!vox.get(0,1,0)){
+        cout << "Top was set to false" << endl;
+        return false;
+    }
+
+    //left and right side of the sphere should still be true
+    if (!vox.get(-1,0,0) || vox.get(1,0,0)){
+        cout << "left|right side was set to false" << endl;
+        return false;
+    }
+
+
+    //check the other circle is completely gone by checking origin and extremes
+    if (vox.get(1,0,0) || vox.get(2,0,0) || vox.get(1,-1,0) || vox.get(1,1,0)  || vox.get(1,1,-1)  || vox.get(1,1,1) || vox.get(0.5,0.5,0.5) || vox.get(0.5,-0.5,0.5)){
+        cout << "spehre 2 still has traces left" << endl;
+        return false;
+    }
+
+    //check if 3d points of sphere 1 are still there
+    if (!vox.get(0,0,-1) || !vox.get(0,0,1) || !vox.get(-0.5,-0.5,-0.5) || !vox.get(-0.5,-0.5,0.5)){
+        cout << "spehre 2 still has traces left" << endl;
+        return false;
+    }
+
+
+    return true;
+}
+
+bool Scene::unionPoints(){
+    //if this operation worked, both circles shoudld fully feature
+    if (!vox.get(0,0,0) || !vox.get(1,0,0)){
+        cout << "Origin was set to false" << endl;
+        return false;
+    }
+
+    //top of the spheres
+    if (!vox.get(0,1,0) || !vox.get(1,1,0)){
+        cout << "Top was set to false" << endl;
+        return false;
+    }
+
+    //left and right side of the spheres should still be true
+    if (!vox.get(-1,0,0) || !vox.get(1,0,0) || !vox.get(0,0,0) || !vox.get(2,0,0)){
+        cout << "left|right side was set to false" << endl;
+        return false;
+    }
+
+
+    //check extremes and half way poiints
+    if (!vox.get(1,-1,0) || !vox.get(1,1,0)  || !vox.get(1,1,-1)  || !vox.get(1,1,1) || !vox.get(0.5,0.5,0.5) || !vox.get(0.5,-0.5,0.5)){
+        cout << "extremes failed" << endl;
+        return false;
+    }
+
+    //check if 3d points of sphere1 exist
+    if (!vox.get(0,0,-1) || !vox.get(0,0,1) || !vox.get(-0.5,-0.5,-0.5) || !vox.get(-0.5,-0.5,0.5)){
+        cout << "spehre 1 3d points failed" << endl;
+        return false;
+    }
+
+    //check if 3d points of sphere2 exist
+    if (!vox.get(1,0,-1) || !vox.get(1,0,1) || !vox.get(-1.5,-0.5,-0.5) || !vox.get(-1.5,-0.5,0.5)){
+        cout << "spehre 2 3d points failed" << endl;
+        return false;
+    }
+
+
+    return true;
+}
+
+
+
 
 bool Scene::testPointContainment(){
     pointScene();
@@ -396,12 +596,14 @@ bool Scene::testPointContainment(){
     //centre
     cgp::Point p1(0.0f,0.0f,0.0f);
     //all edge cases in axis
-    cgp::Point p2(1.0f,1.0f,0.0f);
-    cgp::Point p3(0.0f,1.0f,1.0f);
-    cgp::Point p4(1.0f,0.0f,1.0f);
-    cgp::Point p5(-1.0f,-1.0f,0.0f);
-    cgp::Point p6(0.0f,-1.0f,-1.0f);
-    cgp::Point p7(-1.0f,0.0f,-1.0f);
+    cgp::Point p2(1.0f,0.0f,0.0f);
+    cgp::Point p3(0.0f,1.0f,0.0f);
+    cgp::Point p4(.0f,0.0f,1.0f);
+    cgp::Point p5(-1.0f,0.0f,0.0f);
+    cgp::Point p6(0.0f,-1.0f,0.0f);
+    cgp::Point p7(0.0f,0.0f,-1.0f);
+    cgp::Point p11(0.5f,0.5f,0.5f);
+    cgp::Point p10(0.5f,0.5f,0.5f);
 
     //create negative test points
     cgp::Point p8(1.0f,1.0f,1.0f);
@@ -432,8 +634,12 @@ bool Scene::testPointContainment(){
         cout << "Point 6 failed" << endl;
         return false;
     }
-    if (!leaf->shape->pointContainment(p7)){
-        cout << "Point 7 failed" << endl;
+    if (!leaf->shape->pointContainment(p10)){
+        cout << "Point 10 failed" << endl;
+        return false;
+    }
+    if (!leaf->shape->pointContainment(p11)){
+        cout << "Point 11 failed" << endl;
         return false;
     }
     if (leaf->shape->pointContainment(p8)){
@@ -446,7 +652,7 @@ bool Scene::testPointContainment(){
     }
 
 
-
+    return true;
 
 
 }

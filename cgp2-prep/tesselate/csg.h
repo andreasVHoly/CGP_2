@@ -36,7 +36,7 @@ public:
     SceneNode * left, * right;
     SetOp op;
 
-    ~OpNode(){ delete left; delete right; cout << "deleted left and right " << endl;}
+    ~OpNode(){ delete left; delete right; /*cout << "deleted left and right " << endl;*/}
 };
 
 class ShapeNode: public SceneNode
@@ -45,7 +45,7 @@ public:
     BaseShape * shape;
 
     ~ShapeNode(){
-        cout << "deleted shape in shape node" << endl;
+        /*cout << "deleted shape in shape node" << endl;*/
         delete shape; }
 };
 
@@ -72,7 +72,9 @@ private:
     void applyUnion();
     void applyDifference();
     void applyIntersection();
-
+    bool differencePoints();
+    bool intersectionPoints();
+    bool unionPoints();
 
 
 
@@ -117,6 +119,13 @@ private:
     void voxWalk(SceneNode *root, VoxelVolume *voxels);
 
 public:
+
+
+
+    bool finalTest(int test);
+    void doubleSphereUnion();
+    void doubleSphereInts();
+    void doubleSphereDiff();
 
     ShapeGeometry geom;         ///< triangle mesh geometry for scene
 
