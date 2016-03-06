@@ -39,7 +39,12 @@ GLWidget::GLWidget(const QGLFormat& format, QWidget *parent)
     glewSetupDone = false;
     updateGeometry = true;
     meshVisible = false;
-    scene.pointScene();
+
+    //TODO put normal scene in again
+    scene.doubleSphereUnion();
+    //scene.doubleSphereInts();
+    //scene.doubleSphereDiff();
+    //scene.pointScene();
     //scene.sampleScene();
     //scene.expensiveScene();
     setMouseTracking(true);
