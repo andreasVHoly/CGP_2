@@ -42,8 +42,8 @@ GLWidget::GLWidget(const QGLFormat& format, QWidget *parent)
 
     //TODO put normal scene in again
     //scene.doubleSphereUnion();
-    scene.doubleSphereInts();
-    //scene.doubleSphereDiff();
+    //scene.doubleSphereInts();
+    scene.doubleSphereDiff();
     //scene.pointScene();
     //scene.sampleScene();
     //scene.expensiveScene();
