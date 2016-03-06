@@ -43,9 +43,9 @@ GLWidget::GLWidget(const QGLFormat& format, QWidget *parent)
     //TODO put normal scene in again
     //scene.doubleSphereUnion();
     //scene.doubleSphereInts();
-    scene.doubleSphereDiff();
+    //scene.doubleSphereDiff();
     //scene.pointScene();
-    //scene.sampleScene();
+    scene.sampleScene();
     //scene.expensiveScene();
     setMouseTracking(true);
     setFocusPolicy(Qt::StrongFocus);
