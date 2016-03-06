@@ -41,8 +41,8 @@ GLWidget::GLWidget(const QGLFormat& format, QWidget *parent)
     meshVisible = false;
 
     //TODO put normal scene in again
-    scene.doubleSphereUnion();
-    //scene.doubleSphereInts();
+    //scene.doubleSphereUnion();
+    scene.doubleSphereInts();
     //scene.doubleSphereDiff();
     //scene.pointScene();
     //scene.sampleScene();
