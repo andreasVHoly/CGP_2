@@ -56,16 +56,22 @@ void TestMesh::testCSG(){
 
     //__________________________________________
     //difference
+    cout << "...STARTING DIFFERENCE OP TEST..." << endl<<endl;
     Scene scene3;
-    //CPPUNIT_ASSERT(scene3.finalTest(0));
+    CPPUNIT_ASSERT(scene3.finalTest(0));
+    cout << "\n...DIFFERENCE OP TEST PASSED..." << endl<<endl;
 
     //intersection
+    cout << "...STARTING INTERSECTION OP TEST..." << endl<<endl;
     Scene scene4;
-    //CPPUNIT_ASSERT(scene4.finalTest(1));
+    CPPUNIT_ASSERT(scene4.finalTest(1));
+    cout << "\n...INTERSECTION OP TEST PASSED..." << endl<<endl;
 
     //union
+    cout << "...STARTING UNION OP TEST..." << endl<<endl;
     Scene scene5;
-    //CPPUNIT_ASSERT(scene5.finalTest(2));
+    CPPUNIT_ASSERT(scene5.finalTest(2));
+    cout << "\n...UNION OP TEST PASSED..." << endl<<endl;
     //__________________________________________
     cout << "...ALL CSG TREE TESTS PASSED..." << endl<<endl;
 

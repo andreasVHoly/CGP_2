@@ -465,39 +465,46 @@ bool Scene::finalTest(int test){
 
 
 bool Scene::intersectionPoints(){
+    //NOTE I tested the points on the spheres such as (0,0,0) and edge points that were converted using the below key
+    //this relies on the fact that the dimesnions are 402x402x402
+    //3d coordinate mappings to voxel space mapping:
+        // -1 -> 191
+        // 0 -> 201
+        // 1 -> 220
+        // 2 -> 240
     //if this operation worked, both origins should feature
-    if (!vox.get(0,0,0) || !vox.get(1,0,0)){
+    if (!vox.get(201,201,201) || !vox.get(220,201,201)){
         cout << "Origin was false" << endl;
         return false;
     }
 
     //top of the spheres
-    if (vox.get(0,1,0) || vox.get(1,1,0)){
+    if (vox.get(201,220,201) || vox.get(220,220,201)){
         cout << "Top was set to false" << endl;
         return false;
     }
 
     //left and right side of the spheres
-    if (vox.get(-1,0,0) || vox.get(2,0,0)){
+    if (vox.get(191,201,201) || vox.get(240,201,201)){
         cout << "left|right side was set to true" << endl;
         return false;
     }
 
 
     //check extremes and half way poiints
-    if (vox.get(1,-1,0) || vox.get(1,1,0)  || vox.get(1,1,-1)  || vox.get(1,1,1) || !vox.get(0.5,0.5,0.5) || !vox.get(0.5,-0.5,0.5)){
+    if (vox.get(220,191,201) || vox.get(220,220,201) ){
         cout << "extremes failed" << endl;
         return false;
     }
 
     //check if 3d points of sphere1 exist
-    if (vox.get(0,0,-1) || vox.get(0,0,1) || !vox.get(-0.5,-0.5,-0.5) || !vox.get(-0.5,-0.5,0.5)){
+    if (vox.get(201,201,191) || vox.get(201,201,220) ){
         cout << "spehre 1 3d points failed" << endl;
         return false;
     }
 
     //check if 3d points of sphere2 exist
-    if (vox.get(1,0,-1) || vox.get(1,0,1) || !vox.get(-1.5,-0.5,-0.5) || !vox.get(-1.5,-0.5,0.5)){
+    if (vox.get(220,201,191) || vox.get(220,201,220)){
         cout << "spehre 2 3d points failed" << endl;
         return false;
     }
@@ -508,33 +515,40 @@ bool Scene::intersectionPoints(){
 
 
 bool Scene::differencePoints(){
+    //NOTE I tested the points on the spheres such as (0,0,0) and edge points that were converted using the below key
+    //this relies on the fact that the dimesnions are 402x402x402
+    //3d coordinate mappings to voxel space mapping:
+        // -1 -> 191
+        // 0 -> 201
+        // 1 -> 220
+        // 2 -> 240
     //if this operation worked, the origin should be false
-    if (vox.get(0,0,0)){
+    if (vox.get(201,201,201)){
         cout << "Origin was set to true" << endl;
         return false;
     }
 
     //top of the sphere should still be true
-    if (!vox.get(0,1,0)){
+    if (!vox.get(201,220,201)){
         cout << "Top was set to false" << endl;
         return false;
     }
 
     //left and right side of the sphere should still be true
-    if (!vox.get(-1,0,0) || vox.get(1,0,0)){
+    if (!vox.get(191,201,201) || vox.get(220,201,201)){
         cout << "left|right side was set to false" << endl;
         return false;
     }
 
 
     //check the other circle is completely gone by checking origin and extremes
-    if (vox.get(1,0,0) || vox.get(2,0,0) || vox.get(1,-1,0) || vox.get(1,1,0)  || vox.get(1,1,-1)  || vox.get(1,1,1) || vox.get(0.5,0.5,0.5) || vox.get(0.5,-0.5,0.5)){
+    if (vox.get(220,201,201) || vox.get(240,201,201) || vox.get(220,191,201) || vox.get(220,220,201)  || vox.get(220,220,191)  || vox.get(220,220,220) ){
         cout << "spehre 2 still has traces left" << endl;
         return false;
     }
 
     //check if 3d points of sphere 1 are still there
-    if (!vox.get(0,0,-1) || !vox.get(0,0,1) || !vox.get(-0.5,-0.5,-0.5) || !vox.get(-0.5,-0.5,0.5)){
+    if (!vox.get(201,201,191) || !vox.get(201,201,220) ){
         cout << "spehre 2 still has traces left" << endl;
         return false;
     }
@@ -544,39 +558,44 @@ bool Scene::differencePoints(){
 }
 
 bool Scene::unionPoints(){
+    //NOTE I tested the points on the spheres such as (0,0,0) and edge points that were converted using the below key
+    //this relies on the fact that the dimesnions are 402x402x402
+    //3d coordinate mappings to voxel space mapping:
+        // -1 -> 191
+        // 0 -> 201
+        // 1 -> 220
+        // 2 -> 240
+
+
     //if this operation worked, both circles shoudld fully feature
-    if (!vox.get(0,0,0) || !vox.get(1,0,0)){
+    if (!vox.get(201,201,201) || !vox.get(220,201,201)){
         cout << "Origin was set to false" << endl;
         return false;
     }
 
     //top of the spheres
-    if (!vox.get(0,1,0) || !vox.get(1,1,0)){
+    if (!vox.get(201,220,201) || !vox.get(220,220,201)){
         cout << "Top was set to false" << endl;
         return false;
     }
 
     //left and right side of the spheres should still be true
-    if (!vox.get(-1,0,0) || !vox.get(1,0,0) || !vox.get(0,0,0) || !vox.get(2,0,0)){
+    if (!vox.get(191,201,201) || !vox.get(220,201,201) || !vox.get(201,201,201) || !vox.get(240,201,201)){
         cout << "left|right side was set to false" << endl;
         return false;
     }
 
 
-    //check extremes and half way poiints
-    if (!vox.get(1,-1,0) || !vox.get(1,1,0)  || !vox.get(1,1,-1)  || !vox.get(1,1,1) || !vox.get(0.5,0.5,0.5) || !vox.get(0.5,-0.5,0.5)){
-        cout << "extremes failed" << endl;
-        return false;
-    }
+
 
     //check if 3d points of sphere1 exist
-    if (!vox.get(0,0,-1) || !vox.get(0,0,1) || !vox.get(-0.5,-0.5,-0.5) || !vox.get(-0.5,-0.5,0.5)){
+    if (!vox.get(201,201,191) || !vox.get(201,201,220)){
         cout << "spehre 1 3d points failed" << endl;
         return false;
     }
 
     //check if 3d points of sphere2 exist
-    if (!vox.get(1,0,-1) || !vox.get(1,0,1) || !vox.get(-1.5,-0.5,-0.5) || !vox.get(-1.5,-0.5,0.5)){
+    if (!vox.get(220,201,191) || !vox.get(220,201,220) ){
         cout << "spehre 2 3d points failed" << endl;
         return false;
     }
